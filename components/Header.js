@@ -22,7 +22,7 @@ function Header() {
           <button onClick={logout} className="inline-block w-20 text-white bg-green-600 p-0.5 mx-0.5 rounded border border-black">Sign Up</button>
           {user ?
             <p onClick={logout} className="inline-block w-20 bg-gray-100 p-0.5 mx-0.5 rounded border border-black text-center">Logout</p> :
-            <Link href={'/sign-up'} >
+            <Link href={'/login'} >
               <a className="inline-block w-20 bg-gray-100 p-0.5 mx-0.5 rounded border border-black text-center">Sign in</a>
             </Link>}
         </nav>
