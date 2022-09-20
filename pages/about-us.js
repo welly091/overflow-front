@@ -1,5 +1,6 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+// import '../styles/about-us.css';
 import Alec from '../public/images/alec.jpg';
 import Ryan from '../public/images/ryan.jpg';
 import Ben from '../public/images/ben.jpg';
@@ -50,18 +51,32 @@ export default class AboutUs extends Component {
                             {/* <Button className="carousel-button" href="">GitHub Profile</Button> */}
                             {/* <Button className="carousel-button" href="" >LinkedIn Profile</Button> */}
                         </div>
+                        <div>
+                            <a href="https://github.com/atorresla24">
+                                <Image src="../public/images/github.png" alt="github photo" class="social-link" />
+                            </a>
+                            <a href="www.linkedin.com/in/alecjtorres">
+                                <Image src="../public/images/linkedin.png" alt="linkedin photo" class="social-link" />
+                            </a>
+                        </div>
                     </div>
                     <div>
                         <h2> Ryan McMillan </h2>
                         <h3> Full-Stack Software Developer </h3>
-                        <p> Greetings my fellow human, Glad to see ya here! My name is Ryan and I am a new and excited software developer! I personally love to play and stream video games, as well as spending a lot of time playing my guitar. One of my favorite outdoor activities is Disc Golf, such a great sport and a great hike all in one! Thanks for coming to my Ted talk ya'll!</p>
+                        <p> Greetings my fellow human, Glad to see ya here! My name is Ryan and I am a new and excited software developer! I personally love to play and stream video games, as well as spending a lot of time playing my guitar. One of my favorite outdoor activities is Disc Golf, such a great sport and a great hike all in one! Thanks for coming to my Ted talk yall!</p>
                         <Image
                             className="ourTeamImg"
                             src={Ryan}
                             alt="Ryan McMillan"
                         />
-                        {/* <Button className="carousel-button" href="https://github.com/RyanLMcMillan">GitHub Profile</Button> */}
-                        {/* <Button className="carousel-button" href="https://www.linkedin.com/in/https://www.linkedin.com/in/ryan-m-369b50132/">LinkedIn Profile</Button> */}
+                        <div>
+                            <a href="https://github.com/RyanLMcMillan">
+                                <Image src="../public/images/github.png" alt="github photo" class="social-link" />
+                            </a>
+                            <a href="https://www.linkedin.com/in/ryan-m-369b50132/">
+                                <Image src="../public/images/linkedin.png" alt="linkedin photo" class="social-link" />
+                            </a>
+                        </div>
                     </div>
                     <div>
                         <h2> Benjamin Small </h2>
@@ -72,9 +87,15 @@ export default class AboutUs extends Component {
                             src={Ben}
                             alt="Benjamin Small"
                         />
-                        {/* <Button className="carousel-button" href="">GitHub Profile</Button> */}
+                        <div>
+                            <a href="">
+                                <Image src="../public/images/github.png" alt="github photo" class="social-link" />
+                            </a>
+                            <a href="">
+                                <Image src="../public/images/linkedin.png" alt="linkedin photo" class="social-link" />
+                            </a>
+                        </div>
 
-                        {/* <Button className="carousel-button" href="" >LinkedIn Profile</Button> */}
                     </div>
                     <div>
                         <h2> Rui Guo </h2>
@@ -86,25 +107,37 @@ export default class AboutUs extends Component {
 
                             alt="Rui Guo"
                         />
-                        {/* <Button className="carousel-button" href="">GitHub Profile</Button> */}
 
-                        {/* <Button className="carousel-button" href="">LinkedIn Profile</Button> */}
-
+                        <div>
+                            <a href="https://github.com/mvrk">
+                                <Image src="../public/images/github.png" alt="github photo" class="social-link" />
+                            </a>
+                            <a href="https://www.linkedin.com/in/rui-guo/">
+                                <Image src="../public/images/linkedin.png" alt="linkedin photo" class="social-link" />
+                            </a>
+                        </div>
                     </div>
                     <div>
-                        <h2> Falashade Green </h2>
+                        <h2> Falashade Greene </h2>
                         <h3> Full-Stack Software Developer </h3>
 
                         <p>FILL IN LATER</p>
                         <Image
                             className="ourTeamImg"
                             src={Shade}
-                            alt="Falashade Green"
+                            alt="Falashade Greene"
                         />
-                        {/* <Button className="carousel-button" href="">GitHub Profile</Button> */}
 
-                        {/* <Button className="carousel-button" href="" >LinkedIn Profile</Button> */}
+                        <div>
+                            <a href="https://github.com/falashadegreene">
+                                <Image src="../public/images/github.png" alt="github photo" class="social-link" />
+                            </a>
+                            <a href="http://linkedin.com/in/falashadegreene">
+                                <Image src="../public/images/linkedin.png" alt="linkedin photo" class="social-link" />
+                            </a>
+                        </div>
                     </div>
+
                     <div>
                         <h2> Yu-Wei Hsieh </h2>
                         <h3> Full-Stack Software Developer</h3>
@@ -115,9 +148,14 @@ export default class AboutUs extends Component {
                             src={Yuwei}
                             alt="Yu-Wei Hsieh"
                         />
-                        {/* <Button className="carousel-button" href="">GitHub Profile</Button> */}
-
-                        {/* <Button className="carousel-button" href="" >LinkedIn Profile</Button> */}
+                        <div>
+                            <a href="https://github.com/welly091">
+                                <Image src="../public/images/github.png" alt="github photo" class="social-link" />
+                            </a>
+                            <a href="https://www.linkedin.com/in/welly-yu-wei-hsieh/">
+                                <Image src="../public/images/linkedin.png" alt="linkedin photo" class="social-link" />
+                            </a>
+                        </div>
                     </div>
                 </Carousel>
                 <Footer />
