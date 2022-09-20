@@ -8,16 +8,17 @@ import Shade from '../public/images/shade.png';
 import Yuwei from '../public/images/yu-wei.jpg';
 import Image from 'next/image';
 
-import React from 'react';
+import React, { Component } from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel, CarouselItem } from 'react-responsive-carousel';
+import { Carousel } from 'react-responsive-carousel';
 
 
-export default function AboutUs() {
-    return (
-        <>
-            <Header />
-            {/* <div>
+export default class AboutUs extends Component {
+    render() {
+        return (
+            <>
+                <Header />
+                {/* <div>
                 <Image src='/images/alec.jpg' alt="Alec Torres" width='400px' height='400px'/>
                 <p>Its Alec, not Alex</p>
                 <Image src='/images/ben.jpg' alt="Benjamin Small" width='400px' height='400px'/>
@@ -31,95 +32,96 @@ export default function AboutUs() {
                 <Image src='/images/shade.png' alt="Falashade Green" width='400px' height='400px'/>
                 <p>The final photo as been added at last, Huzzah!</p>
             </div> */}
-            <Carousel className="carry" interval={null} >
-                <CarouselItem>
-                    <h2>Welcome to The Stack Fellows Software Dev Team Page! </h2>
-                    <h3> Scroll through the Carousel to Meet the Devs! </h3>
-                </CarouselItem>
-                <CarouselItem>
-                    <h2> Alec Torres </h2>
-                    <h3> Full-Stack Software Developer</h3>
-                    <p> FILL IN INFO ABOUT YOU</p>
-                    <div className="carousel-div">
+                <Carousel className="carry" interval={null} >
+                    <div>
+                        <h2>Welcome to The Stack Fellows Software Dev Team Page! </h2>
+                        <h3> Scroll through the Carousel to Meet the Devs! </h3>
+                    </div>
+                    <div>
+                        <h2> Alec Torres </h2>
+                        <h3> Full-Stack Software Developer</h3>
+                        <p> FILL IN INFO ABOUT YOU</p>
+                        <div className="carousel-div">
+                            <Image
+                                className="ourTeamImg"
+                                src={Alec}
+                                alt="Alec Torres"
+                            />
+                            {/* <Button className="carousel-button" href="">GitHub Profile</Button> */}
+                            {/* <Button className="carousel-button" href="" >LinkedIn Profile</Button> */}
+                        </div>
+                    </div>
+                    <div>
+                        <h2> Ryan McMillan </h2>
+                        <h3> Full-Stack Software Developer </h3>
+                        <p> Greetings my fellow human, Glad to see ya here! My name is Ryan and I am a new and excited software developer! I personally love to play and stream video games, as well as spending a lot of time playing my guitar. One of my favorite outdoor activities is Disc Golf, such a great sport and a great hike all in one! Thanks for coming to my Ted talk ya'll!</p>
                         <Image
                             className="ourTeamImg"
-                            src={Alec}
-                            alt="Alec Torres"
+                            src={Ryan}
+                            alt="Ryan McMillan"
+                        />
+                        {/* <Button className="carousel-button" href="https://github.com/RyanLMcMillan">GitHub Profile</Button> */}
+                        {/* <Button className="carousel-button" href="https://www.linkedin.com/in/https://www.linkedin.com/in/ryan-m-369b50132/">LinkedIn Profile</Button> */}
+                    </div>
+                    <div>
+                        <h2> Benjamin Small </h2>
+                        <h3> Full-Stack Software Developer </h3>
+                        <p>FILL IN LATER</p>
+                        <Image
+                            className="ourTeamImg"
+                            src={Ben}
+                            alt="Benjamin Small"
                         />
                         {/* <Button className="carousel-button" href="">GitHub Profile</Button> */}
+
                         {/* <Button className="carousel-button" href="" >LinkedIn Profile</Button> */}
                     </div>
-                </CarouselItem>
-                <CarouselItem>
-                    <h2> Ryan McMillan </h2>
-                    <h3> Full-Stack Software Developer </h3>
-                    <p> Greetings my fellow human, Glad to see ya here! My name is Ryan and I am a new and excited software developer! I personally love to play and stream video games, as well as spending a lot of time playing my guitar. One of my favorite outdoor activities is Disc Golf, such a great sport and a great hike all in one! Thanks for coming to my Ted talk ya'll!</p>
-                    <Image
-                        className="ourTeamImg"
-                        src={Ryan}
-                        alt="Ryan McMillan"
-                    />
-                    {/* <Button className="carousel-button" href="https://github.com/RyanLMcMillan">GitHub Profile</Button> */}
-                    {/* <Button className="carousel-button" href="https://www.linkedin.com/in/https://www.linkedin.com/in/ryan-m-369b50132/">LinkedIn Profile</Button> */}
-                </CarouselItem>
-                <CarouselItem>
-                    <h2> Benjamin Small </h2>
-                    <h3> Full-Stack Software Developer </h3>
-                    <p>FILL IN LATER</p>
-                    <Image
-                        className="ourTeamImg"
-                        src={Ben}
-                        alt="Benjamin Small"
-                    />
-                    {/* <Button className="carousel-button" href="">GitHub Profile</Button> */}
+                    <div>
+                        <h2> Rui Guo </h2>
+                        <h3> Full-Stack Software Developer </h3>
+                        <p>FILL IN LATER</p>
+                        <Image
+                            className="ourTeamImg"
+                            src={Rui}
 
-                    {/* <Button className="carousel-button" href="" >LinkedIn Profile</Button> */}
-                </CarouselItem>
-                <CarouselItem>
-                    <h2> Rui Guo </h2>
-                    <h3> Full-Stack Software Developer </h3>
-                    <p>FILL IN LATER</p>
-                    <Image
-                        className="ourTeamImg"
-                        src={Rui}
+                            alt="Rui Guo"
+                        />
+                        {/* <Button className="carousel-button" href="">GitHub Profile</Button> */}
 
-                        alt="Rui Guo"
-                    />
-                    {/* <Button className="carousel-button" href="">GitHub Profile</Button> */}
+                        {/* <Button className="carousel-button" href="">LinkedIn Profile</Button> */}
 
-                    {/* <Button className="carousel-button" href="">LinkedIn Profile</Button> */}
+                    </div>
+                    <div>
+                        <h2> Falashade Green </h2>
+                        <h3> Full-Stack Software Developer </h3>
 
-                </CarouselItem>
-                <CarouselItem>
-                    <h2> Falashade Green </h2>
-                    <h3> Full-Stack Software Developer </h3>
+                        <p>FILL IN LATER</p>
+                        <Image
+                            className="ourTeamImg"
+                            src={Shade}
+                            alt="Falashade Green"
+                        />
+                        {/* <Button className="carousel-button" href="">GitHub Profile</Button> */}
 
-                    <p>FILL IN LATER</p>
-                    <Image
-                        className="ourTeamImg"
-                        src={Shade}
-                        alt="Falashade Green"
-                    />
-                    {/* <Button className="carousel-button" href="">GitHub Profile</Button> */}
+                        {/* <Button className="carousel-button" href="" >LinkedIn Profile</Button> */}
+                    </div>
+                    <div>
+                        <h2> Yu-Wei Hsieh </h2>
+                        <h3> Full-Stack Software Developer</h3>
 
-                    {/* <Button className="carousel-button" href="" >LinkedIn Profile</Button> */}
-                </CarouselItem>
-                <CarouselItem>
-                    <h2> Yu-Wei Hsieh </h2>
-                    <h3> Full-Stack Software Developer</h3>
+                        <p>FILL IN LATER</p>
+                        <Image
+                            className="ourTeamImg"
+                            src={Yuwei}
+                            alt="Yu-Wei Hsieh"
+                        />
+                        {/* <Button className="carousel-button" href="">GitHub Profile</Button> */}
 
-                    <p>FILL IN LATER</p>
-                    <Image
-                        className="ourTeamImg"
-                        src={Yuwei}
-                        alt="Yu-Wei Hsieh"
-                    />
-                    {/* <Button className="carousel-button" href="">GitHub Profile</Button> */}
-
-                    {/* <Button className="carousel-button" href="" >LinkedIn Profile</Button> */}
-                </CarouselItem>
-            </Carousel>
-            <Footer />
-        </>
-    )
+                        {/* <Button className="carousel-button" href="" >LinkedIn Profile</Button> */}
+                    </div>
+                </Carousel>
+                <Footer />
+            </>
+        )
+    }
 }
