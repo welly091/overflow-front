@@ -26,7 +26,7 @@ export function AuthProvider(props) {
   async function login(username, password) {
 
     const response = await axios.post(tokenUrl, { username, password });
-    print(response)
+    console.log(response)
     const decodedAccess = jwt.decode(response.data.access);
 
 
