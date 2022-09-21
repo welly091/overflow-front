@@ -3,13 +3,15 @@ import useComment from '../../hooks/useComment';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../contexts/auth';
+import useQuestion from '../../hooks/useQuestion';
 
 export const filteredCommentsURL = process.env.NEXT_PUBLIC_QUESTION_URL + "/";
 
-export default function question(){
+export default function Question(){
     const { tokens, logout } = useAuth();
     const[comments, setComments] = useState([])
-    const{getFilteredComment} = useComment()
+    const{getFilteredComment,} = useComment()
+    const{data, question_loading} = useQuestion()
     const router = useRouter();
     const question = router.query
 
@@ -22,14 +24,21 @@ export default function question(){
     }
    
     const getData = async() =>{
-        axios.get(filteredCommentsURL + question.id+"/comment", config())
+        console.log(question.id)
+        axios.get(filteredCommentsURL + question.id+"/comment")
         .then((res) =>{
             setComments(res.data)
         })
     }
 
+    const updateQuestion = async() => {
+        
+    }
+
     useEffect(()=>{
-        getData(question.id)
+        
+        getData()
+        // question_loading ? null :setComments(data.filter(question.id == data.question.id))  
     },[])
     
         

@@ -53,11 +53,11 @@ export default function Main(props) {
   
     {question_loading || !question_resources ? null :
           question_resources.map((question, idx) => (
-              <div key={idx} className='flex-auto ml-96 pr-96 w-full box-border h-32 w-32 p-4 border-4 ... mt-16'>
-              {/* <div key={idx} className="flex flex-col items-center" > */}
+              // <div key={idx} className='flex-auto ml-96 pr-96 w-full box-border h-32 w-32 p-4 border-4 ... mt-16'>
+              <div key={idx} className="flex flex-col items-center" >
                 <Link href={{
                   pathname:`/question/${question.id}`,
-                  
+                  query: question.id
                   }}>
                   <a className='text-slate-400'>
                     <div>{question.title}</div>
