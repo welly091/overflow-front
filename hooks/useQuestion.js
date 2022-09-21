@@ -1,16 +1,16 @@
 import axios from 'axios';
 import useSWR from 'swr';
 
-export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL;
+export const apiUrl = process.env.NEXT_PUBLIC_QUESTION_URL;
 import { useAuth } from '../contexts/auth';
 
-export default function useResource() {
+export default function useQuestion() {
 
   const { tokens, logout } = useAuth();
 
-  const { data, error, mutate } = useSWR([apiUrl, tokens], fetchResource);
+  const { data, error: question_error, mutate } = useSWR([apiUrl, tokens], fetchQuestion);
 
-  async function fetchResource(url) {
+  async function fetchQuestion(url) {
 
     if (!tokens) {
       return;
@@ -26,7 +26,7 @@ export default function useResource() {
     }
   }
 
-  async function createResource(info) {
+  async function createQuestion(info) {
 
     try {
       await axios.post(apiUrl, info, config());
@@ -36,7 +36,7 @@ export default function useResource() {
     }
   }
 
-  async function deleteResource(id) {
+  async function deleteQuestion(id) {
 
     try {
       const url = apiUrl + id;
@@ -47,9 +47,14 @@ export default function useResource() {
     }
   }
 
-  async function updateResource(resource) {
-    // STRETCH
-    // Add ability for user to update an existing resource
+  async function updateQuestion(id, info) {
+    try {
+      const url = apiUrl + id;
+      await axios.put(url, info, config());
+      mutate(); // mutate causes complete collection to be refetched
+    } catch (err) {
+      handleError(err);
+    }
   }
 
 
@@ -72,12 +77,12 @@ export default function useResource() {
   }
 
   return {
-    resources: data,
-    error,
-    loading: tokens && !error && !data,
-    createResource,
-    deleteResource,
-    updateResource,
+    question_resources: data,
+    question_error,
+    question_loading: tokens && !question_error && !data,
+    createQuestion,
+    deleteQuestion,
+    updateQuestion,
   };
 }
 
