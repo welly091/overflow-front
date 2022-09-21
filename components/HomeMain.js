@@ -1,11 +1,12 @@
-import { state, useState } from 'react'
 import useQuestion from '../hooks/useQuestion'
+import Link from 'next/link';
 
-export default function Main() {
+export default function Main(props) {
 
-  const { question_resources, question_loading } = useQuestion();
+  const {question_resources, question_loading} = useQuestion();
 
-  return  (
+
+  return (
     <>
     <form>
       <label>
@@ -51,14 +52,20 @@ export default function Main() {
     </div>
   
     {question_loading || !question_resources ? null :
-          question_resources.map((question, idx) => {
-            return (
+          question_resources.map((question, idx) => (
               <div key={idx} className='flex-auto ml-96 pr-96 w-full box-border h-32 w-32 p-4 border-4 ... mt-16'>
-                <h3 className='text-slate-400'>{question.title}</h3>
-                <p>{question.content}</p>
+              {/* <div key={idx} className="flex flex-col items-center" > */}
+                <Link href={{
+                  pathname:`/question/${question.id}`,
+                  
+                  }}>
+                  <a className='text-slate-400'>
+                    <div>{question.title}</div>
+                    <div>{question.content}</div>
+                  </a>
+                </Link>
               </div>
-            )
-          })
+          ))
         }
     </>
   ); 
