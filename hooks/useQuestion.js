@@ -1,5 +1,5 @@
 import axios from 'axios';
-import useSWR from 'swr';
+// import useSWR from 'swr';
 
 export const apiUrl = process.env.NEXT_PUBLIC_QUESTION_URL;
 import { useAuth } from '../contexts/auth';
