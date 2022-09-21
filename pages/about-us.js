@@ -7,6 +7,8 @@ import Ben from '../public/images/ben.jpg';
 import Rui from '../public/images/rui.jpeg';
 import Shade from '../public/images/shade.png';
 import Yuwei from '../public/images/yu-wei.jpg';
+import Github from '../public/images/github.png';
+import Linkedin from '../public/images/linkedin.png';
 import Image from 'next/image';
 
 import React, { Component } from 'react';
@@ -53,10 +55,10 @@ export default class AboutUs extends Component {
                         </div>
                         <div>
                             <a href="https://github.com/atorresla24">
-                                <Image src="../public/images/github.png" alt="github photo" class="social-link" />
+                                <Image src={Github} alt="github photo" class="social-link" />
                             </a>
                             <a href="www.linkedin.com/in/alecjtorres">
-                                <Image src="../public/images/linkedin.png" alt="linkedin photo" class="social-link" />
+                                <Image src={Linkedin} alt="linkedin photo" class="social-link" />
                             </a>
                         </div>
                     </div>
@@ -71,10 +73,10 @@ export default class AboutUs extends Component {
                         />
                         <div>
                             <a href="https://github.com/RyanLMcMillan">
-                                <Image src="../public/images/github.png" alt="github photo" class="social-link" />
+                                <Image src={Github} alt="github photo" class="social-link" />
                             </a>
                             <a href="https://www.linkedin.com/in/ryan-m-369b50132/">
-                                <Image src="../public/images/linkedin.png" alt="linkedin photo" class="social-link" />
+                                <Image src={Linkedin} alt="linkedin photo" class="social-link" />
                             </a>
                         </div>
                     </div>
@@ -88,11 +90,11 @@ export default class AboutUs extends Component {
                             alt="Benjamin Small"
                         />
                         <div>
-                            <a href="">
-                                <Image src="../public/images/github.png" alt="github photo" class="social-link" />
+                            <a href="https://github.com/BenjaminSmall94">
+                                <Image src={Github} alt="github photo" class="social-link" />
                             </a>
-                            <a href="">
-                                <Image src="../public/images/linkedin.png" alt="linkedin photo" class="social-link" />
+                            <a href="https://www.linkedin.com/in/bjgsmall/">
+                                <Image src={Linkedin} alt="linkedin photo" class="social-link" />
                             </a>
                         </div>
 
@@ -110,10 +112,10 @@ export default class AboutUs extends Component {
 
                         <div>
                             <a href="https://github.com/mvrk">
-                                <Image src="../public/images/github.png" alt="github photo" class="social-link" />
+                                <Image src={Github} alt="github photo" class="social-link" />
                             </a>
                             <a href="https://www.linkedin.com/in/rui-guo/">
-                                <Image src="../public/images/linkedin.png" alt="linkedin photo" class="social-link" />
+                                <Image src={Linkedin} alt="linkedin photo" class="social-link" />
                             </a>
                         </div>
                     </div>
@@ -130,10 +132,10 @@ export default class AboutUs extends Component {
 
                         <div>
                             <a href="https://github.com/falashadegreene">
-                                <Image src="../public/images/github.png" alt="github photo" class="social-link" />
+                                <Image src={Github} alt="github photo" class="social-link" />
                             </a>
                             <a href="http://linkedin.com/in/falashadegreene">
-                                <Image src="../public/images/linkedin.png" alt="linkedin photo" class="social-link" />
+                                <Image src={Linkedin} alt="linkedin photo" class="social-link" />
                             </a>
                         </div>
                     </div>
@@ -150,10 +152,10 @@ export default class AboutUs extends Component {
                         />
                         <div>
                             <a href="https://github.com/welly091">
-                                <Image src="../public/images/github.png" alt="github photo" class="social-link" />
+                                <Image src={Github} alt="github photo" class="social-link" />
                             </a>
                             <a href="https://www.linkedin.com/in/welly-yu-wei-hsieh/">
-                                <Image src="../public/images/linkedin.png" alt="linkedin photo" class="social-link" />
+                                <Image src={Linkedin} alt="linkedin photo" class="social-link" />
                             </a>
                         </div>
                     </div>
