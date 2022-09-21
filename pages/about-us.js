@@ -1,5 +1,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Gary from '../images/test.jpg'
+
 // import '../styles/about-us.css';
 import Alec from '../public/images/alec.jpg';
 import Ryan from '../public/images/ryan.jpg';
