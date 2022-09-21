@@ -1,6 +1,6 @@
 export default function Footer() {
   return  (
-    <footer className='bg-slate-400 mt-14 text-slate-800 p-3.5'>
+    <footer className='bg-black mt-96 text-white p-3.5 pb-6 font-mono font-semibold'>
       <p className='mt-4'>&copy; Stack Fellows 2022</p>
     </footer>
     ); 
