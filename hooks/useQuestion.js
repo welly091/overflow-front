@@ -12,7 +12,6 @@ export default function useQuestion() {
 
   async function fetchQuestion(url) {
 
-    
 
     try {
       const response = await axios.get(url);
@@ -91,7 +90,7 @@ export default function useQuestion() {
   return {
     question_resources: data,
     question_error,
-    question_loading: tokens && !question_error && !data,
+    question_loading: !question_error && !data,
     createQuestion,
     deleteQuestion,
     updateQuestion,

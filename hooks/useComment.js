@@ -57,17 +57,17 @@ export default function useComment() {
 
 
   // helper function to handle getting Authorization headers EXACTLY right
- 
+
   async function getFilteredComment(question_id) {
     try {
-      const response = await axios.get(filteredCommentsURL + question_id+"/comment", config());
+      const response = await axios.get(filteredCommentsURL + question_id + "/comment", config());
       return response.data
     } catch (err) {
       handleError(err);
     }
   }
- 
- 
+
+
   function config() {
     return {
       headers: {
