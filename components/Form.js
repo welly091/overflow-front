@@ -65,12 +65,7 @@ export default function QuestionForm({ create }) {
                 <option value="C#">C#</option>
                 <option value="Java">Java</option>
             </select>
-            <FormInputSection>
-                <label className="mb-2 font-bold text-grey-darkest" htmlFor="avg">Keywords</label>
-                <input className="px-3 py-2 mx-8 border text-grey-darkest" type="text" name="keyword" id="keyword"
-                    onChange={inputChangeHandler} placeholder="optional" />
-            </FormInputSection>
-
+            <br></br>
             <button className="p-4 uppercase bg-yellow-200 rounded text-emerald hover:bg-red-100" type="submit">Submit
             </button>
 
