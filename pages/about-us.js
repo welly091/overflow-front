@@ -1,6 +1,5 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Gary from '../images/test.jpg'
 
 // import '../styles/about-us.css';
 import Alec from '../public/images/alec.jpg';
@@ -22,7 +21,6 @@ export default class AboutUs extends Component {
     render() {
         return (
             <>
-                <Header />
                 {/* <div>
                 <Image src='/images/alec.jpg' alt="Alec Torres" width='400px' height='400px'/>
                 <p>Its Alec, not Alex</p>
@@ -162,7 +160,6 @@ export default class AboutUs extends Component {
                         </div>
                     </div>
                 </Carousel>
-                <Footer />
             </>
         )
     }
