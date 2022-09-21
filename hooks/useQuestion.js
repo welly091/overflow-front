@@ -12,12 +12,8 @@ export default function useQuestion() {
 
   async function fetchQuestion(url) {
 
-    if (!tokens) {
-      return;
-    }
-
     try {
-      const response = await axios.get(url, config());
+      const response = await axios.get(url);
 
       return response.data;
 
@@ -79,7 +75,7 @@ export default function useQuestion() {
   return {
     question_resources: data,
     question_error,
-    question_loading: tokens && !question_error && !data,
+    question_loading: !question_error && !data,
     createQuestion,
     deleteQuestion,
     updateQuestion,

@@ -1,6 +1,9 @@
-import {useState} from 'react'
+import { useState } from 'react';
+import { useAuth } from '../contexts/auth';
 
-export default function QuestionForm({onCreate}) {
+export default function QuestionForm({ create }) {
+
+    const { user } = useAuth()
 
     const initialValues = {
         question: '',
@@ -11,52 +14,61 @@ export default function QuestionForm({onCreate}) {
 
     const [values, setValues] = useState(initialValues);
 
-    function submitHandler(event) {
+    function handleSubmit(event) {
         event.preventDefault();
-        const reshapedData = reshapeData()
-        onCreate(reshapedData);
-        setValues(initialValues)
+        alert("hi")
+        const newQuestion = {
+            username: user.id,
+            title: event.target.title.value,
+            content: event.target.content.value,
+            level: event.target.level.value
+        }
+        create(newQuestion)
+        event.target.reset()
     }
 
     function inputChangeHandler(event) {
-        let {name, value, type} = event.target;
+        let { name, value, type } = event.target;
 
         if (type === "number") {
             value = parseFloat(value);
         }
-        setValues({...values, [name]: value});
+        setValues({ ...values, [name]: value });
     }
 
     return (
         <form
-            className="grid-cols-20 gap-4 p-8 mx-auto my-40  bg-white-200 border-2 border-grey-400 rounded-lg text-md gap-x-8"
-            onSubmit={submitHandler}>
+            className="grid-cols-20 gap-4 p-8 mx-auto my-40  bg-white-200 border-2 border-grey-400 rounded-lg text-md gap-x-8 w-1/2"
+            onSubmit={handleSubmit}>
             <div className="flex flex-col col-span-2 mb-4 ">
-                <label className="mb-2 font-bold text-grey-darkest" htmlFor="question">Input your questions
-                    here </label>
+                <label className="mb-2 font-bold text-grey-darkest" htmlFor="title">Question Title</label>
 
-                <input className="px-3 py-2 mx-8 border text-grey-darkest" type="text" name="question" id="question"
-                       value={values.question} onChange={inputChangeHandler} placeholder="Hello there!"/>
+                {/* <input className="px-3 py-2 mx-8 border text-grey-darkest" type="text" name="question" id="question"
+                    value={values.question} onChange={inputChangeHandler} placeholder="Your question here..." /> */}
+                <input className="px-3 py-2 mx-8 border text-grey-darkest" type="text" name="title" id="question"
+                    placeholder="Title" required />
+                <label className="mb-2 font-bold text-grey-darkest" htmlFor="content">Question Content</label>
+                <textarea className="px-3 py-2 mx-8 border text-grey-darkest h-32" name="content" id="question" placeholder="Content" required />
             </div>
-            Pick your level:
-            <select name='level mb-2 font-bold  text-grey-darkest" htmlFor="level'>
-                <option value="102 justify-center">102</option>
+            <label className="mb-2 font-bold text-grey-darkest" htmlFor="level">Pick your level:</label>
+            <select name='level' className='mb-2 font-bold text-grey-darkest' required>
+                <option value="102">102</option>
                 <option value="201">201</option>
-                <option value="201">301</option>
+                <option value="301">301</option>
                 <option value="401">401</option>
             </select>
             <br></br>
-            Pick language category:
-            <select name='level mb-2 font-bold  text-grey-darkest" htmlFor="level'>
-                <option value="102 justify-center">Python</option>
-                <option value="201">Javascirpt</option>
-                <option value="201">C#</option>
-                <option value="401">Java</option>
+            <label className="mb-2 font-bold text-grey-darkest" htmlFor="language">Pick language category:</label>
+            <select name='language' className='mb-2 font-bold text-grey-darkest'>
+                <option value="Python">Python</option>
+                <option value="JavaScript">Javascript</option>
+                <option value="C#">C#</option>
+                <option value="Java">Java</option>
             </select>
             <FormInputSection>
                 <label className="mb-2 font-bold text-grey-darkest" htmlFor="avg">Keywords</label>
                 <input className="px-3 py-2 mx-8 border text-grey-darkest" type="text" name="keyword" id="keyword"
-                       onChange={inputChangeHandler} placeholder="optional"/>
+                    onChange={inputChangeHandler} placeholder="optional" />
             </FormInputSection>
 
             <button className="p-4 uppercase bg-yellow-200 rounded text-emerald hover:bg-red-100" type="submit">Submit
@@ -66,7 +78,7 @@ export default function QuestionForm({onCreate}) {
     );
 }
 
-function FormInputSection({children}) {
+function FormInputSection({ children }) {
     return (
         <div className="flex flex-col justify-between">
             {children}
