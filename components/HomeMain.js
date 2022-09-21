@@ -10,9 +10,9 @@ export default function Main(props) {
     <>
     <form>
       <label>
-        <input name='' className='flex-auto items-center w-full ml-96 mt-6 max-w-md mx-auto shadow rounded border-0 p-3 border-gray-800' type='text' placeholder='search..'/>
+        <input id='search-bar' name='' className='flex-auto items-center w-full ml-96 mt-6 max-w-md mx-auto shadow rounded border-0 p-3 border-gray-800 mr-auto m-auto' type='text' placeholder='search..'/>
       </label>
-      <button type='submit' className='ml-4 rounded-lg bg-slate-400 text-white px-8 py-2'>Submit</button>
+      <button id='search-button'type='submit' className='ml-4 rounded-lg bg-slate-400 text-white px-8 py-2'>Submit</button>
     </form>
 
     <div className=''>

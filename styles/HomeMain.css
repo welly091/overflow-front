@@ -1,0 +1,9 @@
+#search-bar {
+  margin-left: 100;
+  margin-right:auto;
+  display: block;
+}
+
+#search-button {
+  background-color: green
+}
