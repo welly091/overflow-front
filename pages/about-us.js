@@ -2,6 +2,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Image from 'next/image'
 import Gary from '../images/test.jpg'
+import 
 
 export default function AboutUs() {
     return (
