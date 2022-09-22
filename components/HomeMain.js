@@ -9,13 +9,16 @@ export default function Main(props) {
 
    const { question_resources, question_loading, createQuestion } = useQuestion();
    const { user } = useAuth();
-   const [display_questions, setQuestions] = useState(question_resources);
+   const [display_questions, setQuestions] = useState();
 
    function filterQuestions(filter_string) {
-      if (filter_string) {
-         setQuestions(question_resources.filter((question) => question.level == filter_string))
-      } else {
-         setQuestions(question_resources)
+      if (question_resources) {
+         let questions = question_resources.slice().reverse()
+         if (filter_string) {
+            setQuestions(questions.filter((question) => question.level == filter_string))
+         } else {
+            setQuestions(questions)
+         }
       }
    }
 

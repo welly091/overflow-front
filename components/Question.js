@@ -1,30 +1,8 @@
 import Link from 'next/link';
-import id from '../pages/question/[id]'
+import parseTime from '../public/static/ParseTime'
+// import id from '../pages/question/[id]'
 
 export default function Question({ username, title, content, updated, id, level }) {
-
-  function parseTime(time) {
-    const updated_time = {
-      year: parseInt(time.substring(0, 4)),
-      month: parseInt(time.substring(5, 7)),
-      day: parseInt(time.substring(8, 10)),
-      hour: parseInt(time.substring(11, 13)),
-      minute: parseInt(time.substring(14, 16)),
-      second: parseInt(time.substring(17, 19)),
-    };
-    const d = new Date();
-    const curr_year = d.getFullYear();
-    if (updated_time.year !== d.getFullYear()) return `${curr_year - updated_time.year} years ago`
-    const curr_month = d.getMonth() + 1;
-    if (updated_time.month !== curr_month) return `${curr_month - updated_time.month} months ago`
-    const curr_day = d.getDate();
-    if (updated_time.day !== curr_day) return `${curr_day - updated_time.day} days ago`
-    const curr_hour = d.getHours();
-    if (updated_time.hour !== curr_hour) return `${curr_hour - updated_time.hour} hours ago`
-    const curr_minute = d.getMinutes();
-    if (updated_time.minute !== curr_minute) return `${curr_minute - updated_time.minute} minutes ago`
-    return `${d.getSeconds() - updated_time.second} seconds ago`;
-  }
 
   const passedTime = parseTime(updated);
 
