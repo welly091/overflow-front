@@ -34,9 +34,9 @@ export default function Question() {
         }
     }
 
-    function handleUpdateComment(event){
+    function handleUpdateComment(event,id){
         event.preventDefault()
-        let commentURL = URL + "/comment/" + event.target.input.value + "/"
+        let commentURL = URL + "/comment/" + id + "/"
         let newComment={
             content: event.target.comment.value,
             username: user.username,
@@ -95,9 +95,8 @@ export default function Question() {
                     <>
                         <button className="p-4 uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1" onClick={()=>handleDeleteComment(c.id) } >Delete</button>
                         <Popup  trigger={<button className="p-4 uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1">Edit</button>} position="right center">
-                        <form onSubmit={handleUpdateComment}>
+                        <form onSubmit={(event) => handleUpdateComment(event, c.id)}>
                             <textarea name="comment" defaultValue={c.content}></textarea>
-                            <input type="hidden" name="input" value={c.id}></input>
                             <button className="p-4 uppercase bg-cyan-500 rounded text-emerald hover:bg-red-100 m-1" type="submit" >Submit</button>
                         </form>
                         </Popup>
