@@ -90,6 +90,7 @@ export default function OneQuestion() {
 
     useEffect(() => {
         getComment()
+        router.push('/')
     }, [router])
 
 
