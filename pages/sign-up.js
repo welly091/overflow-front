@@ -25,6 +25,8 @@ export default function Signup(props){
     <>
     <form onSubmit={handleCreateUser} 
     className='flex flex-col w-3/5 p-3 pb-12 m-auto my-5 space-y-5 text-center border-2 border-black rounded-md shadow-lg mt-28 shadow-black'>
+      <label className='flex flex-row mb-4 text-m font-bold '> Username
+        <input className='mx-4 bg-gray-100' type='text' placeholder='username' name='username' maxLength={16}/>
       <label className='flex flex-row mb-4 text-m font-bold pl-16'> Username
         <input className='mx-4 bg-gray-100 pl-20' type='text' placeholder='username' name='username'/>
       </label>
