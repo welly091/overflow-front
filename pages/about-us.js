@@ -32,7 +32,7 @@ export default class AboutUs extends Component {
                         <div className='flex'>
                             <div className=''>
                                 <a href="https://github.com/atorresla24" className="absolute scale-75 left-6 top-52">
-                                    <Image src={Github} alt="github photo" class="social-link" />
+                                    <Image src={Github} alt="github photo" class="social-link w-0.5" />
                                 </a>
                                 <div>
                                     <a className="absolute top-24 left-1/3">
