@@ -12,10 +12,10 @@ export default function Main(props) {
    return (
       <>
          <div>
-            <h1 className='text-center mr-24 mt-0 text-xl border-b-4 border-red-600 bg-black w-full text-white pt-5 pb-5 bg-gradient-to-r from-slate-500 text-opacity-50 '>Ask a Question by Using The Search Bar Below!</h1>
+            {/* <h1 className='text-center mr-24 mt-0 text-xl border-b-4 border-red-600 bg-black w-full text-white pt-5 pb-5 bg-gradient-to-r from-slate-500 text-opacity-50 '>Ask a Question by Using The Search Bar Below!</h1> */}
          </div>
          <div className='flex'>
-            <aside class="float-left w-64" aria-label="Sidebar">
+            <aside class="flex float-left w-64" aria-label="Sidebar">
                <div class="overflow-y-auto py-4 px-3 bg-gray-50 dark:bg-black">
                   <ul class="space-y-4">
                      <li>
@@ -41,6 +41,21 @@ export default function Main(props) {
                      <li>
                         <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="flex-1 ml-3 whitespace-nowrap">Career Readiness</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                           <span class="flex-1 ml-3 whitespace-nowrap">JavaScript</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                           <span class="flex-1 ml-3 whitespace-nowrap">Python</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                           <span class="flex-1 ml-3 whitespace-nowrap">Java</span>
                         </a>
                      </li>
                   </ul>
