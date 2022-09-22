@@ -38,7 +38,7 @@ export default function QuestionForm({ create }) {
 
     return (
         <form
-            className="grid-cols-20 gap-4 p-8 mx-auto my-40  bg-white-200 border-2 border-grey-400 rounded-lg text-md gap-x-8 w-1/2"
+            className="grid-cols-20 gap-4 p-8 mx-auto my-40  bg-white-200 border-2 border-grey-400 rounded-lg text-md gap-x-8 w-3/4"
             onSubmit={handleSubmit}>
             <div className="flex flex-col col-span-2 mb-4 ">
                 <label className="mb-2 font-bold text-grey-darkest" htmlFor="title">Question Title</label>
