@@ -25,23 +25,24 @@ export default class AboutUs extends Component {
                         <h2>Welcome to The Stack Fellows Software Dev Team Page! </h2>
                         <h3> Scroll through the Carousel to Meet the Devs! </h3>
                     </div> */}
-                    <div>
+                    <div className='mr-28'>
                         <h2> Alec Torres </h2>
                         <h3> Full-Stack Software Developer</h3>
                         <p> FILL IN INFO ABOUT YOU</p>
-                        <div class="flex items-stretch; flex justify-evenly justify-content: center; ">
-                            <div className="flex justify-center justify-content: center; ">
-                                <a href="https://github.com/atorresla24" className="scale-75">
+                        <div className='flex'>
+                            <div className=''>
+                                <a href="https://github.com/atorresla24" className="absolute scale-75 left-6 top-52">
                                     <Image src={Github} alt="github photo" class="social-link" />
                                 </a>
                                 <div>
+                                    <a className="absolute top-24 left-1/3">
                                     <Image
-                                        className="ourTeamImg"
-                                        src={Alec}
-                                        alt="Alec Torres"
+                                    src={Alec}
+                                    alt="Alec Torres"
                                     />
+                                    </a>
                                 </div>
-                                <a href="https://www.linkedin.com/in/alecjtorres" className="scale-50">
+                                <a href="https://www.linkedin.com/in/alecjtorres" className="absolute right-0 scale-50 top-18">
                                     <Image src={Linkedin} alt="linkedin photo" class="social-link" />
                                 </a>
                             </div>
@@ -52,16 +53,17 @@ export default class AboutUs extends Component {
                         <h2> Ryan McMillan </h2>
                         <h3> Full-Stack Software Developer </h3>
                         <p> Greetings my fellow human, Glad to see ya here! My name is Ryan and I am a new and excited software developer! I personally love to play and stream video games, as well as spending a lot of time playing my guitar. One of my favorite outdoor activities is Disc Golf, such a great sport and a great hike all in one! Thanks for coming to my Ted talk yall!</p>
+                        <a className="absolute top-24 left-1/3">
                         <Image
-                            className="ourTeamImg"
                             src={Ryan}
                             alt="Ryan McMillan"
                         />
-                        <div className="flex justify-center justify-content: center; ">
-                            <a href="https://github.com/RyanLMcMillan" className="scale-75">
+                        </a>
+                        <div>
+                            <a href="https://github.com/RyanLMcMillan" className="absolute scale-75 left-6 top-52">
                                 <Image src={Github} alt="github photo" class="social-link" />
                             </a>
-                            <a href="https://www.linkedin.com/in/ryan-m-369b50132/" className="scale-50">
+                            <a href="https://www.linkedin.com/in/ryan-m-369b50132/" className="absolute right-0 scale-50 top-18">
                                 <Image src={Linkedin} alt="linkedin photo" class="social-link" />
                             </a>
                         </div>
@@ -71,16 +73,17 @@ export default class AboutUs extends Component {
                         <h2> Benjamin Small </h2>
                         <h3> Full-Stack Software Developer </h3>
                         <p>FILL IN LATER</p>
+                        <a className="absolute top-24 left-1/3">
                         <Image
-                            className="ourTeamImg"
                             src={Ben}
                             alt="Benjamin Small"
                         />
-                        <div className="flex justify-center justify-content: center; ">
-                            <a href="https://github.com/BenjaminSmall94" className="scale-75">
+                        </a>
+                        <div>
+                            <a href="https://github.com/BenjaminSmall94" className="absolute scale-75 left-6 top-52">
                                 <Image src={Github} alt="github photo" class="social-link" />
                             </a>
-                            <a href="https://www.linkedin.com/in/bjgsmall/" className="scale-50">
+                            <a href="https://www.linkedin.com/in/bjgsmall/" className="absolute right-0 scale-50 top-18">
                                 <Image src={Linkedin} alt="linkedin photo" class="social-link" />
                             </a>
                         </div>
@@ -91,18 +94,17 @@ export default class AboutUs extends Component {
                         <h2> Rui Guo </h2>
                         <h3> Full-Stack Software Developer </h3>
                         <p>FILL IN LATER</p>
+                        <a className="absolute top-24 left-1/3">
                         <Image
-                            className="ourTeamImg"
                             src={Rui}
-
                             alt="Rui Guo"
                         />
-
-                        <div className="flex justify-center justify-content: center; ">
-                            <a href="https://github.com/mvrk" className="scale-75">
+                        </a>
+                        <div>
+                            <a href="https://github.com/mvrk" className="absolute scale-75 left-6 top-52">
                                 <Image src={Github} alt="github photo" class="social-link" />
                             </a>
-                            <a href="https://www.linkedin.com/in/rui-guo/" className="scale-50">
+                            <a href="https://www.linkedin.com/in/rui-guo/" className="absolute right-0 scale-50 top-18">
                                 <Image src={Linkedin} alt="linkedin photo" class="social-link" />
                             </a>
                         </div>
@@ -113,17 +115,17 @@ export default class AboutUs extends Component {
                         <h3> Full-Stack Software Developer </h3>
 
                         <p>FILL IN LATER</p>
+                        <a className='absolute top-24 left-1/3'>
                         <Image
-                            className="ourTeamImg"
                             src={Shade}
                             alt="Falashade Greene"
                         />
-
-                        <div className="flex justify-center justify-content: center; ">
-                            <a href="https://github.com/falashadegreene" className="scale-75">
+                        </a>
+                        <div>
+                            <a href="https://github.com/falashadegreene" className="absolute scale-75 left-6 top-52">
                                 <Image src={Github} alt="github photo" class="social-link" />
                             </a>
-                            <a href="http://linkedin.com/in/falashadegreene" className="scale-50">
+                            <a href="http://linkedin.com/in/falashadegreene" className="absolute right-0 scale-50 top-18">
                                 <Image src={Linkedin} alt="linkedin photo" class="social-link" />
                             </a>
                         </div>
@@ -134,16 +136,17 @@ export default class AboutUs extends Component {
                         <h3> Full-Stack Software Developer</h3>
 
                         <p>FILL IN LATER</p>
+                        <a className='absolute top-24 left-1/3'>
                         <Image
-                            className="ourTeamImg"
                             src={Yuwei}
                             alt="Yu-Wei Hsieh"
                         />
-                        <div className="flex justify-center justify-content: center; ">
-                            <a href="https://github.com/welly091" className="scale-75">
+                        </a>
+                        <div>
+                            <a href="https://github.com/welly091" className="absolute scale-75 left-6 top-52">
                                 <Image src={Github} alt="github photo" class="social-link" />
                             </a>
-                            <a href="https://www.linkedin.com/in/welly-yu-wei-hsieh/" className="scale-50">
+                            <a href="https://www.linkedin.com/in/welly-yu-wei-hsieh/" className=''>
                                 <Image src={Linkedin} alt="linkedin photo" class="social-link" />
                             </a>
                         </div>
