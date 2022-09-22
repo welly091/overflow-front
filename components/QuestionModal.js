@@ -23,18 +23,14 @@ const QuestionModal = ({create}) => {
         </button>
       </div>
       {showModal ? (
-        <div className="mt-10 flex justify-center items-center flex-col w-72 rounded-lg shadow-xl h-auto p-2">
+        <div className="mt-4 justify-center items-center flex-col w-3/4 rounded-lg shadow-xl h-auto p-2">
           <h2 className="text-base mt-1 mx-1 text-gray-400 font-semibold text-center">
-
-
           <div>
           <QuestionForm className='mx-auto' create={create} close={setShowModal} />
           </div>
-
-
           </h2>
           <button
-            className="my-1 w-auto px-8 h-10 bg-red-600 text-white rounded-md shadow hover:shadow-lg font-semibold"
+            className="my-1 block w-auto mx-auto px-8 h-10 bg-red-600 text-white rounded-md shadow hover:shadow-lg font-semibold"
             onClick={() => setShowModal(false)}
           >
            close

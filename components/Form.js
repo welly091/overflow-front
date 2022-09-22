@@ -39,7 +39,7 @@ export default function QuestionForm({ create, close }) {
 
     return (
         <form
-            className="grid-cols-20 gap-4 p-8 mx-auto my-40  bg-white-200 border-2 border-grey-400 rounded-lg text-md gap-x-8 w-3/4"
+            className="grid-cols-20 gap-4 p-8 mx-auto my-4  bg-white-200 border-2 border-grey-400 rounded-lg text-md gap-x-8 w-full"
             onSubmit={handleSubmit}>
             <div className="flex flex-col col-span-2 mb-4 ">
                 <label className="mb-2 font-bold text-grey-darkest" htmlFor="title">Question Title</label>
@@ -62,15 +62,15 @@ export default function QuestionForm({ create, close }) {
                 <option value="Career Readiness">Career Readiness</option>
             </select>
             <br></br>
-            <label className="mb-2 font-bold text-grey-darkest" htmlFor="language">Pick language category:</label>
-            <select name='language' className='mb-2 font-bold text-grey-darkest'>
+            {/* <label className="mb-2 font-bold text-grey-darkest" htmlFor="language">Pick language category:</label> */}
+            {/* <select name='language' className='mb-2 font-bold text-grey-darkest'>
                 <option value="Python">Python</option>
                 <option value="JavaScript">Javascript</option>
                 <option value="C#">C#</option>
                 <option value="Java">Java</option>
-            </select>
+            </select> */}
             <br></br>
-            <button className="p-4 uppercase bg-yellow-200 rounded text-emerald hover:bg-red-100" type="submit">Submit
+            <button className="px-4 py-2 uppercase bg-yellow-200 rounded text-emerald hover:bg-red-100" type="submit">Submit
             </button>
 
         </form>
