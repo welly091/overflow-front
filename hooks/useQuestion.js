@@ -12,12 +12,9 @@ export default function useQuestion() {
 
   async function fetchQuestion(url) {
 
-    if (!tokens) {
-      return;
-    }
 
     try {
-      const response = await axios.get(url, config());
+      const response = await axios.get(url);
 
       return response.data;
 
@@ -57,6 +54,20 @@ export default function useQuestion() {
     }
   }
 
+  async function getOneQuestion(id) {
+    try {
+      const url = apiUrl + id;
+      const response = await axios.get(url, config());
+      return response.data;
+
+    } catch (err) {
+      handleError(err);
+    }
+  }
+
+  async function getOneQuestionLocal(id) {
+    return data.filter(question.id == id)
+  }
 
   // helper function to handle getting Authorization headers EXACTLY right
   function config() {
@@ -79,10 +90,12 @@ export default function useQuestion() {
   return {
     question_resources: data,
     question_error,
-    question_loading: tokens && !question_error && !data,
+    question_loading: !question_error && !data,
     createQuestion,
     deleteQuestion,
     updateQuestion,
+    getOneQuestion,
+    getOneQuestionLocal,
   };
 }
 

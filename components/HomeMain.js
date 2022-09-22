@@ -1,10 +1,10 @@
 import useQuestion from '../hooks/useQuestion'
 import Link from 'next/link';
+import QuestionForm from "../components/Form";
 
 export default function Main(props) {
 
-  const {question_resources, question_loading} = useQuestion();
-
+  const { question_resources, question_loading, createQuestion } = useQuestion();
 
   return (
     <>
@@ -18,43 +18,6 @@ export default function Main(props) {
       </label>
       <button id='search-button'type='submit' className='ml-4 rounded-lg bg-green-700 text-white px-8 py-2 shadow-xlg hover:bg-green-700 transition transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-green-700 duration-300 ... '>Submit</button>
     </form>
-
-    {/* <div className=''>
-      <nav className="flex-auto py-4 px-6 border-b border-gray-200">
-        <h1>Common Categories</h1>
-        <li href="/">
-          <a>Data Structures</a>
-        </li>
-        <li href="">
-          <a>Javascript</a>
-        </li>
-        <li href=''>
-          <a>Python</a>
-        </li>
-        <li href=''>
-          <a>Career Readiness</a>
-        </li>
-      </nav>
-    </div>
-
-    <div className=''>
-      <nav className="flex-auto py-4 px-6 border-b border-gray-200">
-        <h1>Level</h1>
-        <li href="/">
-          <a>102</a>
-        </li>
-        <li href="">
-          <a>201</a>
-        </li>
-        <li href=''>
-          <a>301</a>
-        </li>
-        <li href=''>
-          <a>401</a>
-        </li>
-      </nav>
-    </div> */}
-
 
 <aside class="w-64" aria-label="Sidebar">
    <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-black">
@@ -107,25 +70,24 @@ export default function Main(props) {
    </div>
 </aside>
 
+      {question_loading || !question_resources ? null :
+        question_resources.map((question, idx) => (
+          <div key={idx} className='mx-auto box-border w-1/2 p-4 border-4 mt-8'>
+            <Link href={{
+              pathname: `/question/${question.id}`,
+            }}>
+              <a className='text-slate-400 block'>
+                <div><strong>{question.username}:</strong> {question.title}</div>
+                <hr></hr>
+                <div>{question.content}</div>
+              </a>
+            </Link>
+          </div>
+        ))
+      }
+      {user ? <QuestionForm create={createQuestion} : null/>
 
-  
-    {question_loading || !question_resources ? null :
-          question_resources.map((question, idx) => (
-              <div key={idx} className='flex-auto ml-96 pr-96 w-full box-border h-32 w-32 p-4 border-4 ... mt-16'>
-              {/* <div key={idx} className="flex flex-col items-center" > */}
-                <Link href={{
-                  pathname:`/question/${question.id}`,
-                  
-                  }}>
-                  <a className='text-slate-400'>
-                    <div>{question.title}</div>
-                    <div>{question.content}</div>
-                  </a>
-                </Link>
-              </div>
-          ))
-        }
     </>
-  ); 
+  );
 }
 
