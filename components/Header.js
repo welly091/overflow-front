@@ -11,26 +11,26 @@ function Header() {
   return (
     <header className='flex justify-between items-center p-3.5 font-serif'>
       <Image src={Logo} className="max-w-full" layout="" alt="Logo" />
-      <h1 className='pl-52 text-4xl subpixel-antialiased tracking-widest  ml-0'>Code Overflow</h1>
+      <h1 className='pl-52 text-4xl ml-0'>Stack Fellows</h1>
       <div>
         <nav>
           <Link href={"/"}>
-            <a className="inline-block w-20 text-white bg-red-600 p-0.5 mx-0.5 rounded-lg border-red-500 pl-4 font-serif ">Home</a>
+            <a className="inline-block w-20  bg-gray-100 p-0.5 mx-0.5 rounded-lg border-red-500 pl-4 ">Home</a>
           </Link>
           <Link href={'/about-us'} >
-            <a className="inline-block w-20 bg-gray-100 p-0.5 mx-0.5 rounded-lg border-black text-center font-serif ">About Us</a>
+            <a className="inline-block w-20 bg-gray-100 p-0.5 mx-0.5 rounded-lg border-black text-center ">About Us</a>
           </Link>
           {
             user && <p className="inline-block w-20 bg-gray-100 p-0.5 mx-0.5 rounded-lg border border-black text-center">{user.username}</p>
           }
           <Link href={'/sign-up'}>
-            <a onClick={logout} className="inline-block w-20 text-white bg-red-600 p-0.5 mx-0.5 rounded-lg border-red-500 font-serif transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-red-500 duration-300 ...">Sign Up</a>
+            <a onClick={logout} className="inline-block bg-gray-100 w-20 p-0.5 mx-0.5 rounded-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ...">Sign Up</a>
           </Link>
           
           {user ?
             <p onClick={logout} className="inline-block w-20 bg-gray-100 p-0.5 mx-0.5 rounded-lg border-black text-center">Logout</p> :
             <Link href={'/login'} >
-              <a className="inline-block w-20 bg-gray-100 p-0.5 mx-0.5 rounded-lg border border-black text-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300 ...">Sign in</a>
+              <a className="inline-block w-20 bg-gray-100 p-0.5 mx-0.5 rounded-lg  text-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300 ...">Sign in</a>
             </Link>}
         </nav>
       </div>
