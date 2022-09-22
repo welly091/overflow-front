@@ -75,6 +75,7 @@ export default function OneQuestion() {
         const commentURL = URL + "/comment/" + id + "/"
         axios.delete(commentURL, config());
 
+
     }
 
     function handleUpdateQuestion(event) {
@@ -90,7 +91,7 @@ export default function OneQuestion() {
 
     useEffect(() => {
         getComment()
-    }, [router])
+    }, [router, comments])
 
 
     if (!question_loading) {
@@ -117,7 +118,6 @@ export default function OneQuestion() {
             {question ? <h3 className='text-3xl w-3/4 my-4 mx-auto font-bold'>Comments</h3> : null}
             {comments ? comments.map((c, i) => (
                 <div key={i}>
-                    {/* <div>{c.content}</div> */}
                     <Comment content={c.content} username={c.username} updated={c.updated_time} />
                     {user && user.id === c.user ?
                         <div className='w-3/4 mx-auto text-right'>
