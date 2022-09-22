@@ -82,22 +82,28 @@ export default function Question() {
         <div>
             <div>{question ? question.title : null}</div>
             <div>{question ? question.content : null}</div>
-            <button className="p-4 uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1">Delete</button>
-            <button className="p-4 uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1">Edit</button>
+            { user && user.id === question.user ?
+            <div>
+                <button className="p-4 uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1">Delete</button>
+                <button className="p-4 uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1">Edit</button>
+            </div>:<></>
+            }
             {comments ? comments.map((c, i) => (
                 <div key={i}>
                     <div>{c.content}</div>
-                    <button className="p-4 uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1" onClick={()=>handleDeleteComment(c.id) } >Delete</button>
-                    <Popup  trigger={<button className="p-4 uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1">Edit</button>} position="right center">
-                    <form onSubmit={handleUpdateComment}>
-                        <textarea name="comment" defaultValue={c.content}></textarea>
-                        <input type="hidden" name="input" value={c.id}></input>
-                        <button className="p-4 uppercase bg-cyan-500 rounded text-emerald hover:bg-red-100 m-1" type="submit" >Submit</button>
-                    </form>
-                    </Popup>
-
+                    { user && user.id === c.user ? 
+                    <>
+                        <button className="p-4 uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1" onClick={()=>handleDeleteComment(c.id) } >Delete</button>
+                        <Popup  trigger={<button className="p-4 uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1">Edit</button>} position="right center">
+                        <form onSubmit={handleUpdateComment}>
+                            <textarea name="comment" defaultValue={c.content}></textarea>
+                            <input type="hidden" name="input" value={c.id}></input>
+                            <button className="p-4 uppercase bg-cyan-500 rounded text-emerald hover:bg-red-100 m-1" type="submit" >Submit</button>
+                        </form>
+                        </Popup>
+                    </>
+                     :<></>}
                 </div>
-
             )) : null}
             {user ?
                 <form onSubmit={handleNewComment}>
