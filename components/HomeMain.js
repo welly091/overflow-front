@@ -25,7 +25,7 @@ export default function Main(props) {
    return (
       <>
          <div>
-            {/* <h1 className='text-center mr-24 mt-0 text-xl border-b-4 border-red-600 bg-black w-full text-white pt-5 pb-5 bg-gradient-to-r from-slate-500 text-opacity-50 '>Ask a Question by Using The Search Bar Below!</h1> */}
+            <h1 className='w-full pt-5 pb-5 mt-0 mr-24 text-xl text-center text-white text-opacity-50 bg-black border-b-4 border-red-600 bg-gradient-to-r from-slate-500 '>Ask a Question by Using The Search Bar Below!</h1>
          </div>
          <div className='flex'>
             <aside class="flex float-left w-64" aria-label="Sidebar">
@@ -91,11 +91,11 @@ export default function Main(props) {
                </div>
             </aside>
             <div className='w-full'>
-               <form className='mx-auto mb-16 w-full text-center'>
+               <form className='w-full mx-auto mb-16 text-center'>
                   <label>
-                     <input id='search-bar' name='' className='inline-block items-center w-full mt-8 max-w-md mx-auto shadow rounded border-0 p-3 border-gray-800 shadow-lg border-double border-4 border-black mt-16' type='text' placeholder='search...' />
+                     <input id='search-bar' name='' className='items-center inline-block w-full max-w-md p-3 mx-auto mt-8 mt-16 border-0 border-4 border-black border-gray-800 border-double rounded shadow shadow-lg' type='text' placeholder='search...' />
                   </label>
-                  <button id='search-button' type='submit' className='ml-4 rounded-lg bg-green-700 text-white px-8 py-2 shadow-xlg hover:bg-green-700 transition transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-green-700 duration-300'>Submit</button>
+                  <button id='search-button' type='submit' className='px-8 py-2 ml-4 text-white transition duration-300 ease-in-out delay-150 bg-green-700 rounded-lg shadow-xlg hover:bg-green-700 hover:-translate-y-1 hover:scale-110'>Submit</button>
                </form>
                {question_loading || !display_questions ? null :
                   display_questions.map((question, idx) => (
