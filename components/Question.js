@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import id from '../pages/question/[id]'
 
 export default function Question({ username, title, content, updated, id, level }) {
 
