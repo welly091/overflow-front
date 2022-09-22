@@ -2,6 +2,7 @@ import useQuestion from '../hooks/useQuestion'
 import Link from 'next/link';
 import QuestionForm from "../components/Form";
 import { useAuth } from '../contexts/auth';
+import Question from './Question';
 
 export default function Main(props) {
 
@@ -15,29 +16,29 @@ export default function Main(props) {
          </div>
          <div className='flex'>
             <aside class="float-left w-64" aria-label="Sidebar">
-               <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-black">
-                  <ul class="space-y-14">
+               <div class="overflow-y-auto py-4 px-3 bg-gray-50 dark:bg-black">
+                  <ul class="space-y-4">
                      <li>
                         <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="ml-3">102</span>
                         </a>
                      </li>
-                     <li className='mt-4'>
+                     <li>
                         <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="flex-1 ml-3 whitespace-nowrap">201</span>
                         </a>
                      </li>
-                     <li className='mt-4'>
+                     <li>
                         <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="flex-1 ml-3 whitespace-nowrap">301</span>
                         </a>
                      </li>
-                     <li className='mt-4'>
+                     <li>
                         <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="flex-1 ml-3 whitespace-nowrap">401</span>
                         </a>
                      </li>
-                     <li className='mt-4'>
+                     <li>
                         <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="flex-1 ml-3 whitespace-nowrap">Career Readiness</span>
                         </a>
@@ -54,17 +55,7 @@ export default function Main(props) {
                </form>
                {question_loading || !question_resources ? null :
                   question_resources.map((question, idx) => (
-                     <div key={idx} className='mx-auto box-border w-3/4 p-4 border-4 mt-8'>
-                        <Link href={{
-                           pathname: `/question/${question.id}`,
-                        }}>
-                           <a className='text-slate-400 block'>
-                              <div><strong>{question.username}:</strong> {question.title}</div>
-                              <hr></hr>
-                              <div>{question.content}</div>
-                           </a>
-                        </Link>
-                     </div>
+                     <Question key={idx} className='w-3/4' username={question.username} title={question.title} content={question.content} updated={question.updated_time} id={question.id} />
                   ))
                }
                {user ? <QuestionForm className='mx-auto' create={createQuestion} /> : null}

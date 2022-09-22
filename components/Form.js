@@ -16,9 +16,9 @@ export default function QuestionForm({ create }) {
 
     function handleSubmit(event) {
         event.preventDefault();
-        alert("hi")
         const newQuestion = {
-            username: user.id,
+            username: user.username,
+            user: user.id,
             title: event.target.title.value,
             content: event.target.content.value,
             level: event.target.level.value
