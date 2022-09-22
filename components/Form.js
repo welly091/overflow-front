@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../contexts/auth';
 
-export default function QuestionForm({ create }) {
+export default function QuestionForm({ create, close }) {
 
     const { user } = useAuth()
 
@@ -25,6 +25,7 @@ export default function QuestionForm({ create }) {
         }
         create(newQuestion)
         event.target.reset()
+        close()
     }
 
     function inputChangeHandler(event) {

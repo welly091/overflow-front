@@ -19,7 +19,10 @@ function Header() {
           {
             user && <p className="inline-block w-20 bg-red-600 p-0.5 mx-0.5 rounded-lg border border-red-500 text-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-red-500 duration-300 text-white">{user.username}</p>
           }
-          { user ? null : <button onClick={logout} className="inline-block w-20 text-white bg-red-600 p-0.5 mx-0.5 rounded-lg border-red-500 font-serif transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-red-500 duration-300">Sign Up</button>}
+          {user ? null :
+            <Link href='/sign-up'>
+              <a className="inline-block w-20 text-white bg-red-600 p-0.5 mx-0.5 rounded-lg border-red-500 font-serif transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-red-500 duration-300">Sign Up</a>
+            </Link>}
           {user ?
             <p onClick={logout} className="inline-block w-20 bg-gray-100 p-0.5 mx-0.5 rounded-lg border-white text-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300">Logout</p> :
             <Link href={'/login'} >
