@@ -12,7 +12,6 @@ export const URL = process.env.NEXT_PUBLIC_API_URL
 export default function Question() {
     const { tokens, logout, user } = useAuth();
     const [comments, setComments] = useState([])
-    // const { getFilteredComment } = useComment()
     const router = useRouter();
     const { question_resources, question_loading } = useQuestion();
     let question = "";
@@ -43,7 +42,6 @@ export default function Question() {
             question: router.query.id,
             user: user.id,
         }
-        console.log(newComment)
         axios.put(commentURL, newComment, config())
         event.target.reset()
     }
@@ -67,6 +65,17 @@ export default function Question() {
         
     }
 
+    function handleUpdateQuestion(event){
+        event.preventDefault();
+        let updateQuestion = {...question, content:event.target.content.value}
+        axios.put(filteredCommentsURL+router.query.id+"/", updateQuestion, config())
+        event.target.reset()
+    }
+
+    function handDeleteQuestion(){
+        axios.delete(filteredCommentsURL+router.query.id+"/", config())
+    }
+
     useEffect(() => {
         getComment()
     }, [router])
@@ -84,20 +93,19 @@ export default function Question() {
             <div>{question ? question.content : null}</div>
             { user && user.id === question.user ?
             <div>
-                <button className="p-4 uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1">Delete</button>
-                <button className="p-4 uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1">Edit</button>
+                <button className="p-4 uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1" onClick={() => handDeleteQuestion()}>Delete</button>
+                <Popup trigger={<button className="p-4 uppercase bg-yellow-400 rounded text-emerald hover:bg-red-100 m-1" >Update</button>}>
+                    <form onSubmit={handleUpdateQuestion}>
+                        <title defaultValue={question.title}></title>
+                        <textarea className="" name="content" defaultValue={question.content}></textarea>
+                        <button className="p-4 uppercase bg-cyan-500 rounded text-emerald hover:bg-red-100 m-1" type="submit" >Submit</button>
+                    </form>
+                </Popup>
             </div>:<></>
             }
             {comments ? comments.map((c, i) => (
                 <div key={i}>
                     <div>{c.content}</div>
-                    {/* <button className="p-4 uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1">Delete</button>
-                    <Popup trigger={<button className="p-4 uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1">Edit</button>} position="right center">
-                        <form onSubmit={handleUpdateCommentSubmit}>
-                            <textarea name="content" ref={ref}>{c.content}</textarea>
-                            <button className="p-4 uppercase bg-cyan-500 rounded text-emerald hover:bg-red-100 m-1" >Submit</button>
-                        </form>
-                    </Popup> */}
                     { user && user.id === c.user ? 
                     <>
                         <button className="p-4 uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1" onClick={()=>handleDeleteComment(c.id) } >Delete</button>
