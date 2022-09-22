@@ -10,7 +10,6 @@ export const filteredCommentsURL = process.env.NEXT_PUBLIC_QUESTION_URL + "/";
 export const URL = process.env.NEXT_PUBLIC_API_URL
 
 export default function Question() {
-    const ref = useRef(null);
     const { tokens, logout, user } = useAuth();
     const [comments, setComments] = useState([])
     // const { getFilteredComment } = useComment()
@@ -35,16 +34,18 @@ export default function Question() {
         }
     }
 
-    function handleUpdateCommentSubmit(event){
+    function handleUpdateComment(event){
         event.preventDefault()
-        let commentURL = URL + "/comment/" + router.query.id + "/"
+        let commentURL = URL + "/comment/" + event.target.input.value + "/"
         let newComment={
-            user: user.id,
-            content: event.target.content.value,
+            content: event.target.comment.value,
             username: user.username,
-            question: router.query.id
+            question: router.query.id,
+            user: user.id
         }
+        console.log(newComment)
         axios.put(commentURL, newComment, config())
+        event.target.reset()
     }
 
     function handleNewComment(event) {
@@ -58,6 +59,12 @@ export default function Question() {
         };
         axios.post(commentURL, newComment, config());
         event.target.reset()
+    }
+
+    function handleDeleteComment(id){
+        const commentURL = URL + "/comment/" + id + "/"
+        axios.delete(commentURL, config());
+        
     }
 
     useEffect(() => {
@@ -75,25 +82,28 @@ export default function Question() {
         <div>
             <div>{question ? question.title : null}</div>
             <div>{question ? question.content : null}</div>
-            <button className="p-4 uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1">Delete</button>
-            <button className="p-4 uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1">Edit</button>
+            { user && user.id === question.user ?
+            <div>
+                <button className="p-4 uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1">Delete</button>
+                <button className="p-4 uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1">Edit</button>
+            </div>:<></>
+            }
             {comments ? comments.map((c, i) => (
                 <div key={i}>
                     <div>{c.content}</div>
-                    <button className="p-4 uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1">Delete</button>
-                    <Popup  trigger={<button className="p-4 uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1">Edit</button>} position="right center">
-                    <form onSubmit={handleUpdateCommentSubmit}>
-                        <textarea name="content"  ref={ref}>{c.content}</textarea>
-                        {/* <input type="hidden" value={c.id} name="id"></input>
-                        <input type="hidden" value={c.question} name="question"></input>
-                        <input type="hidden" value={c.username} name="username"></input>
-                        <input type="hidden" value={c.user.id} name="user"></input> */}
-                        <button className="p-4 uppercase bg-cyan-500 rounded text-emerald hover:bg-red-100 m-1" >Submit</button>
-                    </form>
-                    </Popup>
-
+                    { user && user.id === c.user ? 
+                    <>
+                        <button className="p-4 uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1" onClick={()=>handleDeleteComment(c.id) } >Delete</button>
+                        <Popup  trigger={<button className="p-4 uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1">Edit</button>} position="right center">
+                        <form onSubmit={handleUpdateComment}>
+                            <textarea name="comment" defaultValue={c.content}></textarea>
+                            <input type="hidden" name="input" value={c.id}></input>
+                            <button className="p-4 uppercase bg-cyan-500 rounded text-emerald hover:bg-red-100 m-1" type="submit" >Submit</button>
+                        </form>
+                        </Popup>
+                    </>
+                     :<></>}
                 </div>
-
             )) : null}
             {user ?
                 <form onSubmit={handleNewComment}>
