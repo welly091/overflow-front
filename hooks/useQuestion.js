@@ -1,5 +1,5 @@
 import axios from 'axios';
-// import useSWR from 'swr';
+import useSWR from 'swr';
 
 export const apiUrl = process.env.NEXT_PUBLIC_QUESTION_URL;
 import { useAuth } from '../contexts/auth';
@@ -54,7 +54,7 @@ export default function useQuestion() {
     }
   }
 
-  async function getOneQuestion(id){
+  async function getOneQuestion(id) {
     try {
       const url = apiUrl + id;
       const response = await axios.get(url, config());
@@ -65,7 +65,7 @@ export default function useQuestion() {
     }
   }
 
-  async function getOneQuestionLocal(id){
+  async function getOneQuestionLocal(id) {
     return data.filter(question.id == id)
   }
 

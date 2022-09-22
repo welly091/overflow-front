@@ -34,14 +34,27 @@ export default function Question() {
         }
     }
 
-    function handleSubmit(event){
-        commentURL = URL + "/comment/"+event.target.commentId.value+"/"
-        newComment={
+    function handleSubmit(event) {
+        commentURL = URL + "/comment/" + event.target.commentId.value + "/"
+        newComment = {
             content: event.target.updateComment.value,
             username: user.id,
             question: event.target.questionId.value
         }
         axios.put(commentURL, newComment, config())
+    }
+
+    function handleNewComment(event) {
+        event.preventDefault();
+        const commentURL = URL + "/question/" + router.query.id + "/comment";
+        const newComment = {
+            content: event.target.comment.value,
+            username: user.username,
+            question: router.query.id,
+            user: user.id
+        };
+        axios.post(commentURL, newComment, config());
+        event.target.reset()
     }
 
     useEffect(() => {
@@ -57,28 +70,33 @@ export default function Question() {
     return (
 
         <div>
-            <div>{question.title}</div>
-            <div>{question.content}</div> 
+            <div>{question ? question.title : null}</div>
+            <div>{question ? question.content : null}</div>
             <button className="p-4 uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1">Delete</button>
             <button className="p-4 uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1">Edit</button>
             {comments ? comments.map((c, i) => (
                 <div key={i}>
                     <div>{c.content}</div>
                     <button className="p-4 uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1">Delete</button>
-                    <Popup  trigger={<button className="p-4 uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1">Edit</button>} position="right center">
-                    <form onSubmit={handleSubmit}>
-                        
-                        <textarea name="updateComment">{c.content}</textarea>
-                        <input type="hidden" value={c.id} name="commentId"></input>
-                        <input type="hidden" value={c.question} name="questionId"></input>
-                        <button className="p-4 uppercase bg-cyan-500 rounded text-emerald hover:bg-red-100 m-1" >Submit</button>
-                    </form>
+                    <Popup trigger={<button className="p-4 uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1">Edit</button>} position="right center">
+                        <form onSubmit={handleSubmit}>
+
+                            <textarea name="updateComment">{c.content}</textarea>
+                            <input type="hidden" value={c.id} name="commentId"></input>
+                            <input type="hidden" value={c.question} name="questionId"></input>
+                            <button className="p-4 uppercase bg-cyan-500 rounded text-emerald hover:bg-red-100 m-1" >Submit</button>
+                        </form>
                     </Popup>
-                    
-                    
+
                 </div>
-                
-            )) : <div></div>}
+
+            )) : null}
+            {user ?
+                <form onSubmit={handleNewComment}>
+                    <label htmlFor='comment'>New Comment</label>
+                    <textarea name='comment' placeholder='comment here...'></textarea>
+                    <button type='submit'>Submit Comment</button>
+                </form> : null}
         </div>
 
     );
