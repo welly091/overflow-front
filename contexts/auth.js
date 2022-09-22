@@ -40,7 +40,7 @@ export function AuthProvider(props) {
     setState(prevState => ({ ...prevState, ...newState }));
     }catch(err){
       console.log(err)
-      alert("Cannot access")
+      alert("Wrong username or password")
     }
       
   }
