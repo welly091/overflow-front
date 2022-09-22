@@ -19,10 +19,6 @@ export default function Comment() {
                         <div class="flex items-stretch">
                             <Link href="/thread/2">
                                 <a class="self-center flex">
-                                    <img
-                                        src="https://www.pngrepo.com/download/2880/chat-bubbles-with-ellipsis.png"
-                                        class="w-10 rounded-full" alt = ' '
-                                    />
                                     <div class="leading-none text-sm self-center pl-2 pr-4">
                                         Hello!<br />
                                         <span class="text-xs text-gray-600">
