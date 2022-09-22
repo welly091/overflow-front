@@ -52,10 +52,13 @@ export default function QuestionForm({ create }) {
             </div>
             <label className="mb-2 font-bold text-grey-darkest" htmlFor="level">Pick your level:</label>
             <select name='level' className='mb-2 font-bold text-grey-darkest' required>
+                <option value="101">101</option>
                 <option value="102">102</option>
                 <option value="201">201</option>
                 <option value="301">301</option>
                 <option value="401">401</option>
+                <option value="Graduate">Graduate</option>
+                <option value="Career Readiness">Career Readiness</option>
             </select>
             <br></br>
             <label className="mb-2 font-bold text-grey-darkest" htmlFor="language">Pick language category:</label>
