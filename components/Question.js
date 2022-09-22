@@ -1,9 +1,8 @@
 import Link from 'next/link';
 
-export default function Question({ username, title, content, updated, id }) {
+export default function Question({ username, title, content, updated, id, level }) {
 
   function parseTime(time) {
-    console.log(time);
     const updated_time = {
       year: parseInt(time.substring(0, 4)),
       month: parseInt(time.substring(5, 7)),
@@ -53,6 +52,7 @@ export default function Question({ username, title, content, updated, id }) {
                   class="w-10 rounded-full"
                 />
                 <div class="leading-none text-sm self-center pl-2 pr-4">
+                  Level: {level}<br />
                   <span class="text-xs text-gray-600">
                     by {username} &bull; {passedTime}
                   </span>

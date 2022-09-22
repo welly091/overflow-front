@@ -1,5 +1,5 @@
 import useQuestion from '../hooks/useQuestion'
-import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import QuestionForm from "../components/Form";
 import { useAuth } from '../contexts/auth';
 import Question from './Question';
@@ -8,6 +8,19 @@ export default function Main(props) {
 
    const { question_resources, question_loading, createQuestion } = useQuestion();
    const { user } = useAuth();
+   const [display_questions, setQuestions] = useState(question_resources);
+
+   function filterQuestions(filter_string) {
+      if (filter_string) {
+         setQuestions(question_resources.filter((question) => question.level == filter_string))
+      } else {
+         setQuestions(question_resources)
+      }
+   }
+
+   useEffect(() => {
+      filterQuestions()
+   }, [question_resources])
 
    return (
       <>
@@ -18,30 +31,45 @@ export default function Main(props) {
             <aside class="float-left w-64" aria-label="Sidebar">
                <div class="overflow-y-auto py-4 px-3 bg-gray-50 dark:bg-black">
                   <ul class="space-y-4">
-                     <li>
-                        <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                     <li onClick={() => filterQuestions('101')}>
+                        <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                           <span class="ml-3">101</span>
+                        </div>
+                     </li>
+                     <li onClick={() => filterQuestions('102')}>
+                        <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="ml-3">102</span>
-                        </a>
+                        </div>
                      </li>
-                     <li>
-                        <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                     <li onClick={() => filterQuestions('201')}>
+                        <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="flex-1 ml-3 whitespace-nowrap">201</span>
-                        </a>
+                        </div>
                      </li>
-                     <li>
-                        <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                     <li onClick={() => filterQuestions('301')}>
+                        <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="flex-1 ml-3 whitespace-nowrap">301</span>
-                        </a>
+                        </div>
                      </li>
-                     <li>
-                        <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                     <li onClick={() => filterQuestions('401')}>
+                        <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="flex-1 ml-3 whitespace-nowrap">401</span>
-                        </a>
+                        </div>
                      </li>
-                     <li>
-                        <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                     <li onClick={() => filterQuestions('Graduate')}>
+                        <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                           <span class="flex-1 ml-3 whitespace-nowrap">Graduate</span>
+                        </div>
+                     </li>
+                     <li onClick={() => filterQuestions('Career Readiness')}>
+                        <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="flex-1 ml-3 whitespace-nowrap">Career Readiness</span>
-                        </a>
+                        </div>
+                     </li>
+                     <li onClick={() => filterQuestions(false)}>
+                        <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                           <span class="flex-1 ml-3 whitespace-nowrap">All</span>
+                        </div>
                      </li>
                   </ul>
                </div>
@@ -53,9 +81,9 @@ export default function Main(props) {
                   </label>
                   <button id='search-button' type='submit' className='ml-4 rounded-lg bg-green-700 text-white px-8 py-2 shadow-xlg hover:bg-green-700 transition transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-green-700 duration-300'>Submit</button>
                </form>
-               {question_loading || !question_resources ? null :
-                  question_resources.map((question, idx) => (
-                     <Question key={idx} className='w-3/4' username={question.username} title={question.title} content={question.content} updated={question.updated_time} id={question.id} />
+               {question_loading || !display_questions ? null :
+                  display_questions.map((question, idx) => (
+                     <Question key={idx} className='w-3/4' username={question.username} title={question.title} content={question.content} updated={question.updated_time} id={question.id} level={question.level} />
                   ))
                }
                {user ? <QuestionForm className='mx-auto' create={createQuestion} /> : null}
