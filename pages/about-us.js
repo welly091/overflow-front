@@ -151,6 +151,7 @@ export default class AboutUs extends Component {
                             </a>
                         </div>
                     </div>
+                    
                 </Carousel>
             </>
         )
