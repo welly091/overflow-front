@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import useComment from '../../hooks/useComment';
 import useQuestion from '../../hooks/useQuestion';
-import { useEffect, useState,useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../contexts/auth';
 import Popup from 'reactjs-popup';
@@ -35,10 +35,10 @@ export default function Question() {
         }
     }
 
-    function handleUpdateCommentSubmit(event){
+    function handleUpdateCommentSubmit(event) {
         event.preventDefault()
         let commentURL = URL + "/comment/" + router.query.id + "/"
-        let newComment={
+        let newComment = {
             user: user.id,
             content: event.target.content.value,
             username: user.username,
@@ -81,15 +81,11 @@ export default function Question() {
                 <div key={i}>
                     <div>{c.content}</div>
                     <button className="p-4 uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1">Delete</button>
-                    <Popup  trigger={<button className="p-4 uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1">Edit</button>} position="right center">
-                    <form onSubmit={handleUpdateCommentSubmit}>
-                        <textarea name="content"  ref={ref}>{c.content}</textarea>
-                        {/* <input type="hidden" value={c.id} name="id"></input>
-                        <input type="hidden" value={c.question} name="question"></input>
-                        <input type="hidden" value={c.username} name="username"></input>
-                        <input type="hidden" value={c.user.id} name="user"></input> */}
-                        <button className="p-4 uppercase bg-cyan-500 rounded text-emerald hover:bg-red-100 m-1" >Submit</button>
-                    </form>
+                    <Popup trigger={<button className="p-4 uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1">Edit</button>} position="right center">
+                        <form onSubmit={handleUpdateCommentSubmit}>
+                            <textarea name="content" ref={ref}>{c.content}</textarea>
+                            <button className="p-4 uppercase bg-cyan-500 rounded text-emerald hover:bg-red-100 m-1" >Submit</button>
+                        </form>
                     </Popup>
 
                 </div>
