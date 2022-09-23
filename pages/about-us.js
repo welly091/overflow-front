@@ -111,37 +111,3 @@ export default class NextJsCarousel extends Component {
         );
     }
 };
-
-
-{/*  <style jsx>{`*/
-}
-
-{/*.container {*/
-}
-{/*      display: flex;*/
-}
-{/*      height:400px;*/
-}
-{/*      flex-flow: column wrap;*/
-}
-{/*      background-color: green;*/
-}
-{/*      align-content: flex-start;*/
-}
-{/*    }*/
-}
-{/*    p {*/
-}
-{/*      color: blue;*/
-}
-
-{/*    }*/
-}
-{/*    .div {*/
-}
-{/*    justify-items: center;*/
-}
-{/*    }*/
-}
-{/*  `}</style>*/
-}
