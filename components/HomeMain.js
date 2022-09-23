@@ -12,7 +12,6 @@ export default function Main(props) {
    const [display_questions, setQuestions] = useState();
 
    function sortFilterQuestions(filter_string) {
-
       function customSort(a, b) {
          function parseTime(time) {
             const parsedTime = {

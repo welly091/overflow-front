@@ -14,12 +14,10 @@ export default function OneQuestion() {
     const { tokens, logout, user } = useAuth();
     const { question_resources, question_loading } = useQuestion();
     const [comments, setComments] = useState([])
+    const [question, setQuestion] = useState()
     const [questionIsShowing, setQuestionIsShowing] = useState(false)
-    const [commentIsShowing, setCommentIsShowing] = useState(false)
     
     const router = useRouter();
-
-    let question = "";
 
     function config() {
         return {
@@ -34,15 +32,6 @@ export default function OneQuestion() {
             setQuestionIsShowing(false);
         } else {
             setQuestionIsShowing(true);
-        }
-    }
-
-    const getComment = async (id) => {
-        if (router.query.id) {
-            axios.get(filteredCommentsURL + router.query.id + "/comment")
-                .then((res) => {
-                    setComments(res.data)
-                })
         }
     }
 
@@ -96,22 +85,39 @@ export default function OneQuestion() {
         
     }
 
+    const getComment = async () => {
+        if (router.query.id) {
+            axios.get(filteredCommentsURL + router.query.id + "/comment")
+                .then((res) => {
+                    setComments(res.data)
+                })
+        }
+    }
+
+    const getQuestion = async () => {
+        axios.get(filteredCommentsURL + router.query.id + "/")
+            .then((res) => {
+                setQuestion(res.data)
+            })
+    }
+
     useEffect(() => {
         getComment()
+        getQuestion()
     }, [router, comments, question_resources])
 
 
-    if (!question_loading) {
-        let [q] = question_resources.filter((question) => parseInt(question.id) === parseInt(router.query.id))
-        question = q
-    }
+    // if (!question_loading) {
+    //     let [q] = question_resources.filter((question) => parseInt(question.id) === parseInt(router.query.id))
+    //     setQuestion(q)
+    // }
 
     return (
 
         <div>
             <h3 className='text-4xl w-3/4 my-4 mx-auto font-bold'>Question</h3>
             {question ? <Question className='w-3/4' username={question.username} title={question.title} content={question.content} updated={question.updated_time} id={question.id} level={question.level} oneQuestion={true} /> : null}
-            {user && user.id === question.user ?
+            {user && question && user.id === question.user ?
                 <div className='w-3/4 text-right mx-auto mb-4'>
                     <button className="p-2 font-medium uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1" onClick={showQuestionModal}>Edit</button>
                     <button className="p-2 font-medium uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1" onClick={() => handDeleteQuestion()}>Delete</button>
