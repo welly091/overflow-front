@@ -11,19 +11,43 @@ export default function Main(props) {
    const { user } = useAuth();
    const [display_questions, setQuestions] = useState();
 
-   function filterQuestions(filter_string) {
-      if (question_resources) {
-         let questions = question_resources.slice().reverse()
-         if (filter_string) {
-            setQuestions(questions.filter((question) => question.level == filter_string))
-         } else {
-            setQuestions(questions)
+   function sortFilterQuestions(filter_string) {
+
+      function customSort(a, b) {
+         function parseTime(time) {
+            const parsedTime = {
+               year: parseInt(time.substring(0, 4)),
+               month: parseInt(time.substring(5, 7)),
+               day: parseInt(time.substring(8, 10)),
+               hour: parseInt(time.substring(11, 13)),
+               minute: parseInt(time.substring(14, 16)),
+               second: parseInt(time.substring(17, 19)),
+            };
+            return parsedTime
          }
+
+         const time_a = parseTime(a.updated_time);
+         const time_b = parseTime(b.updated_time);
+         if (time_a.year !== time_b.year) return time_b.year - time_a.year
+         if (time_a.month !== time_b.month) return time_b.month - time_a.month
+         if (time_a.day !== time_b.day) return time_b.day - time_a.day
+         if (time_a.hour !== time_b.hour) return time_b.hour - time_a.hour
+         if (time_a.minute !== time_b.minute) return time_b.minute - time_a.minute
+         return time_b.second - time_a.second
+      }
+
+      if (question_resources) {
+         let questions = question_resources.slice()
+         if (filter_string) {
+            questions = questions.filter((question) => question.level == filter_string)
+         }
+         setQuestions(questions.sort(customSort))
+
       }
    }
 
    useEffect(() => {
-      filterQuestions()
+      sortFilterQuestions()
    }, [question_resources])
 
    return (
@@ -36,42 +60,42 @@ export default function Main(props) {
                <div class="overflow-y-auto py-4 px-3 bg-gray-50 dark:bg-black">
                   <p>Courses</p>
                   <ul class="space-y-4">
-                     <li onClick={() => filterQuestions('101')}>
+                     <li onClick={() => sortFilterQuestions('101')}>
                         <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="ml-3">101</span>
                         </div>
                      </li>
-                     <li onClick={() => filterQuestions('102')}>
+                     <li onClick={() => sortFilterQuestions('102')}>
                         <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="ml-3">102</span>
                         </div>
                      </li>
-                     <li onClick={() => filterQuestions('201')}>
+                     <li onClick={() => sortFilterQuestions('201')}>
                         <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="flex-1 ml-3 whitespace-nowrap">201</span>
                         </div>
                      </li>
-                     <li onClick={() => filterQuestions('301')}>
+                     <li onClick={() => sortFilterQuestions('301')}>
                         <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="flex-1 ml-3 whitespace-nowrap">301</span>
                         </div>
                      </li>
-                     <li onClick={() => filterQuestions('401')}>
+                     <li onClick={() => sortFilterQuestions('401')}>
                         <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="flex-1 ml-3 whitespace-nowrap">401</span>
                         </div>
                      </li>
-                     <li onClick={() => filterQuestions('Graduate')}>
+                     <li onClick={() => sortFilterQuestions('Graduate')}>
                         <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="flex-1 ml-3 whitespace-nowrap">Graduate</span>
                         </div>
                      </li>
-                     <li onClick={() => filterQuestions('Career Readiness')}>
+                     <li onClick={() => sortFilterQuestions('Career Readiness')}>
                         <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="flex-1 ml-3 whitespace-nowrap">Career Readiness</span>
                         </div>
                      </li>
-                     <li onClick={() => filterQuestions(false)}>
+                     <li onClick={() => sortFilterQuestions(false)}>
                         <div className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                            <span class="flex-1 ml-3 whitespace-nowrap">All</span>
                         </div>
