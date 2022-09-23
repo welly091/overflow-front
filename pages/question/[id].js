@@ -14,8 +14,9 @@ export default function OneQuestion() {
     const { tokens, logout, user } = useAuth();
     const { question_resources, question_loading } = useQuestion();
     const [comments, setComments] = useState([])
-    const [showModal, setShowModal] = useState(false)
-
+    const [questionIsShowing, setQuestionIsShowing] = useState(false)
+    const [commentIsShowing, setCommentIsShowing] = useState(false)
+    
     const router = useRouter();
 
     let question = "";
@@ -29,10 +30,10 @@ export default function OneQuestion() {
     }
 
     function showQuestionModal() {
-        if (showModal) {
-            setShowModal(false);
+        if (questionIsShowing) {
+            setQuestionIsShowing(false);
         } else {
-            setShowModal(true);
+            setQuestionIsShowing(true);
         }
     }
 
@@ -45,7 +46,7 @@ export default function OneQuestion() {
         }
     }
 
-    function handleUpdateComment(event, id) {
+    function handleUpdateComment(event, id,i) {
         event.preventDefault()
         let commentURL = URL + "/comment/" + id + "/"
         let newComment = {
@@ -55,7 +56,7 @@ export default function OneQuestion() {
             user: user.id,
         }
         axios.put(commentURL, newComment, config())
-        event.target.reset()
+        document.querySelector("#button" + i).click()
     }
 
     function handleNewComment(event) {
@@ -81,17 +82,23 @@ export default function OneQuestion() {
         event.preventDefault();
         let updateQuestion = { ...question, content: event.target.content.value }
         axios.put(filteredCommentsURL + router.query.id + "/", updateQuestion, config())
-        event.target.reset()
+        setQuestionIsShowing(false)
     }
 
     function handDeleteQuestion() {
-        axios.delete(filteredCommentsURL + router.query.id + "/", config())
+        try {
+            axios.delete(filteredCommentsURL + router.query.id + "/", config())
+            router.push('/')
+        } catch (error) {
+            console.error(error)
+            alert("ERROR: "+error)
+        }
+        
     }
 
     useEffect(() => {
         getComment()
-        router.push('/')
-    }, [router, comments])
+    }, [router, comments, question_resources])
 
 
     if (!question_loading) {
@@ -108,7 +115,7 @@ export default function OneQuestion() {
                 <div className='w-3/4 text-right mx-auto mb-4'>
                     <button className="p-2 font-medium uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1" onClick={showQuestionModal}>Edit</button>
                     <button className="p-2 font-medium uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1" onClick={() => handDeleteQuestion()}>Delete</button>
-                    {showModal ? <form onSubmit={handleUpdateQuestion}>
+                    {questionIsShowing ? <form onSubmit={handleUpdateQuestion}>
                         <title defaultValue={question.title}></title>
                         <textarea className="w-1/2" name="content" defaultValue={question.content}></textarea>
                         <button className="p-2 font-medium uppercase bg-cyan-500 rounded text-emerald hover:bg-red-100 m-1" type="submit" >Submit</button>
@@ -122,10 +129,10 @@ export default function OneQuestion() {
                     <Comment content={c.content} username={c.username} updated={c.updated_time} />
                     {user && user.id === c.user ?
                         <div className='w-3/4 mx-auto text-right'>
-                            <Popup trigger={<button className="p-2 font-medium uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1">Edit</button>} position="left">
-                                <form onSubmit={(event) => handleUpdateComment(event, c.id)}>
+                            <Popup trigger={<button className="p-2 font-medium uppercase bg-cyan-200 rounded text-emerald hover:bg-red-100 m-1" id={"button" + i}>Edit</button>} position="left">
+                                <form onSubmit={(event) => handleUpdateComment(event, c.id, i)}>
                                     <textarea name="comment" defaultValue={c.content}></textarea>
-                                    <button className="p-2 font-medium uppercase bg-cyan-500 rounded text-emerald hover:bg-red-100 m-1" type="submit" >Submit</button>
+                                    <button className="p-2 font-medium uppercase bg-cyan-500 rounded text-emerald hover:bg-red-100 m-1" type="submit">Submit</button>
                                 </form>
                             </Popup>
                             <button className="p-2 font-medium uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1" onClick={() => handleDeleteComment(c.id)} >Delete</button>

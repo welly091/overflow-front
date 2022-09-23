@@ -6,7 +6,8 @@ function Header() {
   const { user, logout } = useAuth()
   return (
     <header className='flex justify-between items-center bg-black p-3.5 font-serif'>
-      <Image src={Logo} className="max-w-full" layout="" alt="Logo" />
+      <Link href={'/'}><a>
+      <Image src={Logo} className="max-w-full" layout="" alt="Logo" /></a></Link>
       <h1 className='ml-0 text-4xl subpixel-antialiased tracking-widest text-white pl-52'>Code Overflow</h1>
       <div>
         <nav>
@@ -21,7 +22,7 @@ function Header() {
           }
           {user ? null :
             <Link href='/sign-up'>
-              <a className="inline-block w-20 text-white bg-red-600 p-0.5 mx-0.5 rounded-lg border-red-500 font-serif transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-red-500 duration-300">Sign Up</a>
+              <a className="inline-block w-20 text-center text-white bg-red-600 p-0.5 mx-0.5 rounded-lg border-red-500 font-serif transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-red-500 duration-300">Sign Up</a>
             </Link>}
           {user ?
             <p onClick={logout} className="inline-block w-20 bg-gray-100 p-0.5 mx-0.5 rounded-lg border-white text-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300">Logout</p> :
