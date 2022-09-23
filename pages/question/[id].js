@@ -120,7 +120,7 @@ export default function OneQuestion() {
                     <button className="p-2 font-medium uppercase bg-red-300 rounded text-emerald hover:bg-red-100 m-1" onClick={() => handDeleteQuestion()}>Delete</button>
                     {questionIsShowing ? <form onSubmit={handleUpdateQuestion}>
                         <title defaultValue={question.title}></title>
-                        <textarea className="w-1/2" name="content" defaultValue={question.content}></textarea>
+                        <textarea className="w-1/2 shadow" name="content" defaultValue={question.content}></textarea>
                         <button className="p-2 font-medium uppercase bg-cyan-500 rounded text-emerald hover:bg-red-100 m-1" type="submit" >Submit</button>
                     </form> : null}
                 </div> : <></>

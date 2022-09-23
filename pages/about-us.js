@@ -21,9 +21,9 @@ export default class NextJsCarousel extends Component {
                             </a>
                         </div>
                         <img src="../images/alec.jpg" alt="image1" className=" block w-auto mx-auto" />
-                        <p className="legend"> Full stack software developer specializing in Python
-                            Based out of Spotsylvania, Virginia
-                            Enjoy reading books, playing sports, and space
+                        <p className="legend"> Full stack software developer specializing in Python<br />
+                            Based out of Spotsylvania, Virginia<br />
+                            Enjoy reading books, playing sports, and space<br />
                             Future goal: Excel in anything I set my sights on
                         </p>
                     </div>
@@ -58,9 +58,9 @@ export default class NextJsCarousel extends Component {
                             </a>
                         </div>
                         <img src="../images/rui.jpeg" alt="image1" className=" block w-auto mx-auto" />
-                        <p className="legend"> Full stack software developer
-                            LSU graduate with a system science background
-                            Living in greater Seattle area
+                        <p className="legend"> Full stack software developer<br />
+                            LSU graduate with a system science background<br />
+                            Living in greater Seattle area<br />
                             Love outdoor discoveries and new technologies
                         </p>
                     </div>
@@ -76,8 +76,8 @@ export default class NextJsCarousel extends Component {
                             </a>
                         </div>
                         <img src="../images/shade.png" alt="image1" className=" block w-auto mx-auto" />
-                        <p className="legend"> Full stack software developer
-                            Background in customer service and fashion
+                        <p className="legend"> Full stack software developer<br />
+                            Background in customer service and fashion<br />
                             Living in the Baltimore, Maryland area
                             Love to travel
                         </p>
@@ -90,13 +90,13 @@ export default class NextJsCarousel extends Component {
                                 <Linkedin className="my-1 inline-block w-auto mx-auto px-8 h-10" color="royalblue" size={24} />
                             </a>
                             <a href="https://github.com/RyanLMcMillan">
-                                <Github className="my-1 inline-block w-auto mx-auto px-8 h-10" color="royalblue" size={24} />
+                                <Github className="my-1 inline-block w-auto mx-auto px-8 h-10" color="black" size={24} />
                             </a>
                         </div>
                         <img src="../images/ryan.jpg" alt="image1" className=" block w-auto mx-auto" />
-                        <p className="legend"> Full Stack Software Developer furthering learning in Python
-                            Based in the greater Seattle area
-                            Passion and interest for music and technologies
+                        <p className="legend"> Full Stack Software Developer furthering learning in Python<br />
+                            Based in the greater Seattle area<br />
+                            Passion and interest for music and technologies<br />
                             Career goal is to join a team with a growth mindset
                         </p>
                     </div>
@@ -112,9 +112,9 @@ export default class NextJsCarousel extends Component {
                             </a>
                         </div>
                         <img src="../images/yu-wei.jpg" alt="image1" className=" block w-auto mx-auto" />
-                        <p className="legend"> Full-stack software developer & Python software developer
-                            UW graduated
-                            Chemistry & biochemistry background
+                        <p className="legend"> Full-stack software developer & Python software developer<br />
+                            UW graduated<br />
+                            Chemistry & biochemistry background<br />
                             Future goal: Seeking opportunities in tech industry
                         </p>
                     </div>
