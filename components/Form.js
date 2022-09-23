@@ -62,8 +62,8 @@ export default function QuestionForm({ create, close }) {
                 <option value="Career Readiness">Career Readiness</option>
             </select>
             <br></br>
-            {/* <label className="mb-2 font-bold text-grey-darkest" htmlFor="language">Pick language category:</label> */}
-            {/* <select name='language' className='mb-2 font-bold text-grey-darkest'>
+            {/* <label className="mb-2 font-bold text-grey-darkest" htmlFor="language">Pick language category:</label>
+            <select name='language' className='mb-2 font-bold text-grey-darkest'>
                 <option value="Python">Python</option>
                 <option value="JavaScript">Javascript</option>
                 <option value="C#">C#</option>

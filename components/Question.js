@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import parseTime from '../public/static/ParseTime'
-// import id from '../pages/question/[id]'
 
 export default function Question({ username, title, content, updated, id, level }) {
 

@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { useAuth } from '../contexts/auth';
+import Link from 'next/link'
 import Logo from '../public/images/pythonlogo.PNG'
 import Image from 'next/image';
 function Header() {
@@ -7,7 +7,7 @@ function Header() {
   return (
     <header className='flex justify-between items-center bg-black p-3.5 font-serif'>
       <Link href={'/'}><a>
-      <Image src={Logo} className="max-w-full" layout="" alt="Logo" /></a></Link>
+        <Image src={Logo} className="max-w-full" layout="" alt="Logo" /></a></Link>
       <h1 className='ml-0 text-4xl subpixel-antialiased tracking-widest text-white pl-52'>Code Overflow</h1>
       <div>
         <nav>

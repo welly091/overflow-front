@@ -4,73 +4,74 @@ import { Carousel } from 'react-responsive-carousel';
 import Github from '../public/images/github.png';
 import Linkedin from '../public/images/linkedin.png';
 import Image from 'next/image';
+
 export default class NextJsCarousel extends Component {
     render() {
         return (
             <div>
-            <h2 className='font-sans text-center'>About Us</h2>
-            <Carousel>
-                <div>
-                    <img src="../images/alec.jpg" alt="image1" className=''/>
-                    <p className="legend">This is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is me</p>
-                    <a href="https://github.com/atorresla24" >
-                        <Image src={Github} alt="github photo" class="social-link" className="absolute scale-50" />
-                    </a>
-                    <a href="https://www.linkedin.com/in/alecjtorres" className="absolute scale-50">
-                        <Image src={Linkedin} alt="linkedin photo" class="social-link"/>
-                    </a>
-                </div>
-                <div>
-                    <img src="../images/ben.jpg" alt="image2" />
-                    <p className="legend">Image 2</p>
-                    <a href="https://github.com/BenjaminSmall94">
-                        <Image src={Github} alt="github photo" class="social-link" className="absolute scale-50"/>
+                <h2 className='font-sans text-center'>About Us</h2>
+                <Carousel>
+                    <div>
+                        <img src="../images/alec.jpg" alt="image1" className='' />
+                        <p className="legend">This is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is meThis is me</p>
+                        <a href="https://github.com/atorresla24" >
+                            <Image src={Github} alt="github photo" class="social-link" className="absolute scale-50" />
                         </a>
-                    <a href="https://www.linkedin.com/in/bjgsmall/" className="absolute scale-50">
-                        <Image src={Linkedin} alt="linkedin photo" class="social-link" />
-                    </a>
-                </div>
-                <div>
-                    <img src="../images/rui.jpeg" alt="image3"/>
-                    <p className="legend">Image 3</p>
-                    <a href="https://github.com/mvrk">
-                        <Image src={Github} alt="github photo" class="social-link" className="absolute scale-50"/>
-                    </a>
-                    <a href="https://www.linkedin.com/in/rui-guo/" className="absolute scale-50">
-                        <Image src={Linkedin} alt="linkedin photo" class="social-link" />
-                    </a>
-                </div>
-                <div>
-                    <img src="../images/shade.png" alt="image4"/>
-                    <p className="legend">Image 4</p>
-                    <a href="https://github.com/falashadegreene">
-                        <Image src={Github} alt="github photo" class="social-link" className="absolute scale-50"/>
-                    </a>
-                    <a href="http://linkedin.com/in/falashadegreene" className="absolute scale-50">
-                        <Image src={Linkedin} alt="linkedin photo" class="social-link" />
-                    </a>
-                </div>
-                <div>
-                    <img src="../images/ryan.jpg" alt="image5"/>
-                    <p className="legend">Image 5</p>
-                    <a href="https://github.com/RyanLMcMillan">
-                        <Image src={Github} alt="github photo" class="social-link" className="absolute scale-50"/>
-                    </a>
-                    <a href="https://www.linkedin.com/in/ryan-m-369b50132/" className="absolute scale-50">
-                        <Image src={Linkedin} alt="linkedin photo" class="social-link" />
-                    </a>
+                        <a href="https://www.linkedin.com/in/alecjtorres" className="absolute scale-50">
+                            <Image src={Linkedin} alt="linkedin photo" class="social-link" />
+                        </a>
                     </div>
-                <div>
-                    <img src="../images/yu-wei.jpg" alt="image6"/>
-                    <p className="legend">Image 6</p>
-                    <a href="https://github.com/welly091">
-                        <Image src={Github} alt="github photo" class="social-link" className="absolute scale-50"/>
-                    </a>
-                    <a href="https://www.linkedin.com/in/welly-yu-wei-hsieh/" className="absolute scale-50">
-                        <Image src={Linkedin} alt="linkedin photo" class="social-link"/>
-                    </a>
-                </div>
-            </Carousel>
+                    <div>
+                        <img src="../images/ben.jpg" alt="image2" />
+                        <p className="legend">Image 2</p>
+                        <a href="https://github.com/BenjaminSmall94">
+                            <Image src={Github} alt="github photo" class="social-link" className="absolute scale-50" />
+                        </a>
+                        <a href="https://www.linkedin.com/in/bjgsmall/" className="absolute scale-50">
+                            <Image src={Linkedin} alt="linkedin photo" class="social-link" />
+                        </a>
+                    </div>
+                    <div>
+                        <img src="../images/rui.jpeg" alt="image3" />
+                        <p className="legend">Image 3</p>
+                        <a href="https://github.com/mvrk">
+                            <Image src={Github} alt="github photo" class="social-link" className="absolute scale-50" />
+                        </a>
+                        <a href="https://www.linkedin.com/in/rui-guo/" className="absolute scale-50">
+                            <Image src={Linkedin} alt="linkedin photo" class="social-link" />
+                        </a>
+                    </div>
+                    <div>
+                        <img src="../images/shade.png" alt="image4" />
+                        <p className="legend">Image 4</p>
+                        <a href="https://github.com/falashadegreene">
+                            <Image src={Github} alt="github photo" class="social-link" className="absolute scale-50" />
+                        </a>
+                        <a href="http://linkedin.com/in/falashadegreene" className="absolute scale-50">
+                            <Image src={Linkedin} alt="linkedin photo" class="social-link" />
+                        </a>
+                    </div>
+                    <div>
+                        <img src="../images/ryan.jpg" alt="image5" />
+                        <p className="legend">Image 5</p>
+                        <a href="https://github.com/RyanLMcMillan">
+                            <Image src={Github} alt="github photo" class="social-link" className="absolute scale-50" />
+                        </a>
+                        <a href="https://www.linkedin.com/in/ryan-m-369b50132/" className="absolute scale-50">
+                            <Image src={Linkedin} alt="linkedin photo" class="social-link" />
+                        </a>
+                    </div>
+                    <div>
+                        <img src="../images/yu-wei.jpg" alt="image6" />
+                        <p className="legend">Image 6</p>
+                        <a href="https://github.com/welly091">
+                            <Image src={Github} alt="github photo" class="social-link" className="absolute scale-50" />
+                        </a>
+                        <a href="https://www.linkedin.com/in/welly-yu-wei-hsieh/" className="absolute scale-50">
+                            <Image src={Linkedin} alt="linkedin photo" class="social-link" />
+                        </a>
+                    </div>
+                </Carousel>
             </div>
         );
     }

@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import parseTime from '../public/static/ParseTime'
 
 export default function Comment({ content, username, updated }) {

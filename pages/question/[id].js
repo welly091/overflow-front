@@ -11,12 +11,12 @@ export const filteredCommentsURL = process.env.NEXT_PUBLIC_QUESTION_URL + "/";
 export const URL = process.env.NEXT_PUBLIC_API_URL
 
 export default function OneQuestion() {
-    const { tokens, logout, user } = useAuth();
-    const { question_resources, question_loading } = useQuestion();
+    const { tokens, user } = useAuth();
+    const { question_resources } = useQuestion();
     const [comments, setComments] = useState([])
     const [question, setQuestion] = useState()
     const [questionIsShowing, setQuestionIsShowing] = useState(false)
-    
+
     const router = useRouter();
 
     function config() {
@@ -35,7 +35,7 @@ export default function OneQuestion() {
         }
     }
 
-    function handleUpdateComment(event, id,i) {
+    function handleUpdateComment(event, id, i) {
         event.preventDefault()
         let commentURL = URL + "/comment/" + id + "/"
         let newComment = {
@@ -75,42 +75,39 @@ export default function OneQuestion() {
     }
 
     function handDeleteQuestion() {
-        try {
-            axios.delete(filteredCommentsURL + router.query.id + "/", config())
-            router.push('/')
-        } catch (error) {
-            console.error(error)
-            alert("ERROR: "+error)
-        }
-        
+        axios.delete(filteredCommentsURL + router.query.id + "/", config())
+            .then((res) => {
+                router.push('/')
+            }, (error) => {
+                console.error(error)
+            })
+
     }
 
     const getComment = async () => {
-        if (router.query.id) {
-            axios.get(filteredCommentsURL + router.query.id + "/comment")
-                .then((res) => {
-                    setComments(res.data)
-                })
-        }
+        axios.get(filteredCommentsURL + router.query.id + "/comment")
+            .then((res) => {
+                setComments(res.data)
+            }, (error) => {
+                console.error(error)
+            })
     }
 
     const getQuestion = async () => {
         axios.get(filteredCommentsURL + router.query.id + "/")
             .then((res) => {
                 setQuestion(res.data)
+            }, (error) => {
+                console.error(error)
             })
     }
 
     useEffect(() => {
-        getComment()
-        getQuestion()
+        if (router && router.query && router.query.id) {
+            getQuestion()
+            getComment()
+        }
     }, [router, comments, question_resources])
-
-
-    // if (!question_loading) {
-    //     let [q] = question_resources.filter((question) => parseInt(question.id) === parseInt(router.query.id))
-    //     setQuestion(q)
-    // }
 
     return (
 
