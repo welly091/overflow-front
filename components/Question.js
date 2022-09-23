@@ -14,7 +14,7 @@ export default function Question({ username, title, content, updated, id, level 
         <a>
           <div className="mt-4 shadow p-3 bg-white flex">
             <div class="p-3">
-              <img src="https://www.pngrepo.com/download/2880/chat-bubbles-with-ellipsis.png" class="w-12 opacity-70" />
+              <img src="https://www.pngrepo.com/download/2880/chat-bubbles-with-ellipsis.png" class="w-12" />
             </div>
             <div class="flex items-stretch flex-1 pl-2">
               <div class="self-center leading-tight">
