@@ -102,6 +102,7 @@ export default function Main(props) {
                   </label>
                   <button id='search-button' type='submit' className='px-8 py-2 ml-4 text-white transition duration-300 ease-in-out delay-150 bg-green-700 rounded-lg shadow-xlg hover:bg-green-700 hover:-translate-y-1 hover:scale-110'>Submit</button>
                </form> */}
+               <h2 className='text-4xl font-bold text-center my-4'>Questions</h2>
                {user ? <QuestionModal create={createQuestion} /> : null}
                {question_loading || !display_questions ? null :
                   display_questions.map((question, idx) => (

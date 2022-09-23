@@ -91,7 +91,7 @@ export default function OneQuestion() {
     useEffect(() => {
         getComment()
         router.push('/')
-    }, [router])
+    }, [router, comments])
 
 
     if (!question_loading) {

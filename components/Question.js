@@ -7,12 +7,12 @@ export default function Question({ username, title, content, updated, id, level 
   const passedTime = parseTime(updated);
 
   return (
-    <div>
+    <div className='w-3/4 mx-auto'>
       <Link href={{
         pathname: `/question/${id}`,
       }}>
         <a>
-          <div class="w-3/4 mx-auto mt-4 shadow p-3 bg-white flex">
+          <div className="mt-4 shadow p-3 bg-white flex">
             <div class="p-3">
               <img src="https://www.pngrepo.com/download/2880/chat-bubbles-with-ellipsis.png" class="w-12 opacity-70" />
             </div>
@@ -31,7 +31,7 @@ export default function Question({ username, title, content, updated, id, level 
                   class="w-10 rounded-full"
                 />
                 <div class="leading-none text-sm self-center pl-2 pr-4">
-                  Level: {level}<br />
+                  Course: {level}<br />
                   <span class="text-xs text-gray-600">
                     by {username} &bull; {passedTime}
                   </span>
