@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { AiFillFire } from "react-icons/ai";
-import Image from "next/image";
-import Link from 'next/link';
-// import id from '../pages/question/[id]'
 import QuestionForm from "./Form";
-
 
 
 const QuestionModal = ({ create }) => {
