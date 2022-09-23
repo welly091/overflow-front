@@ -7,7 +7,7 @@ import QuestionForm from "./Form";
 
 
 
-const QuestionModal = ({create}) => {
+const QuestionModal = ({ create }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -23,17 +23,15 @@ const QuestionModal = ({create}) => {
         </button>
       </div>
       {showModal ? (
-        <div className="mt-4 justify-center items-center flex-col w-3/4 rounded-lg shadow-xl h-auto p-2">
-          <h2 className="text-base mt-1 mx-1 text-gray-400 font-semibold text-center">
-          <div>
-          <QuestionForm className='mx-auto' create={create} close={setShowModal} />
+        <div className="fixed bg-opacity-100 bg-white inset-x-1/4 top-8 rounded-lg shadow-xl p-2">
+          <div className="text-base mt-1 mx-1 text-slate-600 font-semibold text-center">
+            <QuestionForm className='mx-auto' create={create} close={setShowModal} />
           </div>
-          </h2>
           <button
             className="my-1 block w-auto mx-auto px-8 h-10 bg-red-600 text-white rounded-md shadow hover:shadow-lg font-semibold"
             onClick={() => setShowModal(false)}
           >
-           close
+            close
           </button>
         </div>
       ) : null}

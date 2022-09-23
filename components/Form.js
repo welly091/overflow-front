@@ -39,17 +39,17 @@ export default function QuestionForm({ create, close }) {
 
     return (
         <form
-            className="grid-cols-20 gap-4 p-8 mx-auto my-4  bg-white-200 border-2 border-grey-400 rounded-lg text-md gap-x-8 w-full"
+            className="grid-cols-20 gap-4 p-8 mx-auto my-4 bg-white-200 border-2 border-slate-600 rounded-lg text-md gap-x-8 w-full"
             onSubmit={handleSubmit}>
             <div className="flex flex-col col-span-2 mb-4 ">
                 <label className="mb-2 font-bold text-grey-darkest" htmlFor="title">Question Title</label>
 
                 {/* <input className="px-3 py-2 mx-8 border text-grey-darkest" type="text" name="question" id="question"
                     value={values.question} onChange={inputChangeHandler} placeholder="Your question here..." /> */}
-                <input className="px-3 py-2 mx-8 border text-grey-darkest" type="text" name="title" id="question"
+                <input className="px-3 py-2 mx-8 border text-grey-darkest border-slate-600" type="text" name="title" id="question"
                     placeholder="Title" required />
                 <label className="mb-2 font-bold text-grey-darkest" htmlFor="content">Question Content</label>
-                <textarea className="px-3 py-2 mx-8 border text-grey-darkest h-32" name="content" id="question" placeholder="Content" required />
+                <textarea className="px-3 py-2 mx-8 border border-slate-600 text-grey-darkest h-32" name="content" id="question" placeholder="Content" required />
             </div>
             <label className="mb-2 font-bold text-grey-darkest" htmlFor="level">Pick your level:</label>
             <select name='level' className='mb-2 font-bold text-grey-darkest' required>
